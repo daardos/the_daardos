@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена | Daardos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .not-found {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .not-found h1 {
+            font-size: 6rem;
+            margin: 0;
+            background: linear-gradient(45deg, var(--accent), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .not-found p {
+            color: var(--muted);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="not-found">
+        <h1>404</h1>
+        <h2>Страница не найдена</h2>
+        <p>Возможно, она была удалена или вы ошиблись адресом.</p>
+        <a href="index.html" class="btn">← На главную</a>
+    </main>
+    <!-- JS для темы (если нужна кнопка) -->
+    <script>
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+      }
+    </script>
+</body>
+</html>

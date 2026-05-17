@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Услуги Senior Frontend разработчика. Создание сайтов, верстка из Figma, веб-приложения.">
+    <title>Услуги | Daardos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ШАПКА (скопируй из index.html) -->
+    <header>
+        <nav>
+            <div class="logo">DEV<span>FOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="index.html#projects">Проекты</a></li>
+                <li><a href="index.html#reviews">Отзывы</a></li>
+                <li><a href="index.html#action">Контакты</a></li>
+                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special">Нету GitHub?</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+              ☀️
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero услуг -->
+        <section class="page-hero">
+            <div>
+                <h1>Мои услуги</h1>
+                <p>Высококонверсионные сайты и интерфейсы, созданные с нуля. Без шаблонов и тяжёлых CMS.</p>
+            </div>
+        </section>
+
+<section class="container reveal kwork-cta">
+    <h2>Мои услуги на Kwork</h2>
+    <p>Полный список услуг, тарифов и примеров работ — на моей странице Kwork. Там же можно сразу оформить заказ.</p>
+    <a href="https://kwork.ru/user/daardos" target="_blank" class="btn-kwork-portal">
+        <span class="btn-text">Смотреть услуги</span>
+        <span class="btn-icon">→</span>
+        <span class="btn-glare"></span>
+    </a>
+</section>
+
+        <!-- Как я работаю -->
+        <section class="container reveal">
+            <h2>Процесс работы</h2>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-num">01</div>
+                    <h4>Брифинг</h4>
+                    <p>Обсуждаем задачу, цели, референсы. Вы получаете точную оценку сроков и стоимости.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">02</div>
+                    <h4>Прототип</h4>
+                    <p>Готовлю структуру и логику будущего сайта. Показываю наброски и согласую с вами.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">03</div>
+                    <h4>Разработка</h4>
+                    <p>Пишу код, добавляю анимации, тестирую на всех устройствах. Вы видите промежуточные результаты.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-num">04</div>
+                    <h4>Запуск</h4>
+                    <p>Финальные правки, выгрузка на хостинг, инструкция по поддержке. Проект готов к работе.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA + форма -->
+        <section id="action" class="cta-form-section reveal">
+            <div class="cta-form-container">
+                <div class="cta-text">
+                    <h2>Обсудим ваш проект?</h2>
+                    <p>Напишите мне сейчас и получите бесплатный аудит задачи + персональные рекомендации в течение 24 часов</p>
+                    <div class="socials-inline">
+                        <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/xpqklalq" method="POST" id="contact-form" class="cta-form">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="email" name="email" placeholder="Email для связи" required>
+                    <textarea name="message" placeholder="Опишите задачу или задайте вопрос" rows="4" required></textarea>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР (скопируй из index.html) -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo">DEV<span>FOLIO</span></span>
+                <p>Создаю дизайн и код, который приносит продажи.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <a href="index.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="about.html">Обо мне</a>
+                <a href="index.html#projects">Проекты</a>
+                <a href="index.html#reviews">Отзывы</a>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+            </div>
+            <div class="footer-legal">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+            </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
+        </div>
+    </footer>
+
+    <script>
+        // Плавный скролл для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Анимация появления при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Отправка формы
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Отправка...';
+            btn.disabled = true;
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                btn.innerText = 'Отправлено!';
+                btn.style.background = '#28a745';
+                form.reset();
+                setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+            } else {
+                btn.innerText = 'Ошибка! Попробуйте снова.';
+                btn.style.background = '#dc3545';
+                setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+            }
+        });
+
+        // Динамический фон за мышкой (по желанию)
+        window.addEventListener('mousemove', e => {
+            document.body.style.setProperty('--x', e.clientX + 'px');
+            document.body.style.setProperty('--y', e.clientY + 'px');
+        });
+
+          const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // При загрузке проверяем сохранённую тему
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light-theme');
+    themeToggle.textContent = '🌙';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    if (body.classList.contains('light-theme')) {
+      localStorage.setItem('theme', 'light');
+      themeToggle.textContent = '🌙';
+    } else {
+      localStorage.setItem('theme', 'dark');
+      themeToggle.textContent = '☀️';
+    }
+  });
+    </script>
+</body>
+</html>

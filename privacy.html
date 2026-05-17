@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Политика конфиденциальности сайта Daardos.">
+    <title>Политика конфиденциальности | Daardos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">DEV<span>FOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="index.html#projects">Проекты</a></li>
+                <li><a href="index.html#reviews">Отзывы</a></li>
+                <li><a href="index.html#action">Контакты</a></li>
+                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special">Нету GitHub?</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+              ☀️
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container" style="padding-top: 120px;">
+            <h1>Политика конфиденциальности</h1>
+            <p style="color: var(--muted);">Дата последнего обновления: 17 мая 2026 г.</p>
+
+            <div style="max-width: 800px; margin: 40px 0; color: var(--text); line-height: 1.7;">
+                <p>Настоящая Политика конфиденциальности объясняет, как я (далее – «владелец сайта», «я») собираю, использую и защищаю персональные данные, которые вы предоставляете при использовании данного сайта-портфолио.</p>
+
+                <h2>1. Какие данные собираются</h2>
+                <p>При заполнении контактной формы (имя, email, сообщение) эти данные передаются через сервис <strong>Formspree</strong> для отправки мне на email. Я не храню их в базе данных сайта, так как её нет. Также могут автоматически собираться технические данные, такие как IP-адрес и тип браузера, через GitHub Pages (хостинг) – это стандартная практика для обеспечения работоспособности.</p>
+
+                <h2>2. Как используются данные</h2>
+                <p>Предоставленная информация используется исключительно для связи с вами по вашему запросу (обсуждение проекта, ответы на вопросы). Данные не передаются третьим лицам, не используются для рекламы или спама.</p>
+
+                <h2>3. Файлы cookie</h2>
+                <p>Сайт может использовать минимальные технические куки (например, для сохранения состояния форм), но не применяет трекинговые или рекламные куки. Вы можете отключить куки в настройках браузера, это не повлияет на работоспособность сайта.</p>
+
+                <h2>4. Безопасность</h2>
+                <p>Я принимаю разумные меры для защиты передаваемых данных. Форма отправляется по защищённому протоколу HTTPS. Сервис Formspree также обеспечивает безопасность передачи. Однако помните, что передача данных через интернет не может быть гарантированно защищена на 100%.</p>
+
+                <h2>5. Сторонние сервисы</h2>
+                <p>Для работы контактной формы используется <strong>Formspree</strong> (formspree.io). Пожалуйста, ознакомьтесь с их политикой конфиденциальности. Сайт размещён на GitHub Pages, который может собирать анонимную статистику посещений.</p>
+
+                <h2>6. Ваши права</h2>
+                <p>Вы имеете право запросить удаление предоставленных данных из моей почты. Для этого свяжитесь со мной через контактную форму или email. Я отвечу в течение 7 рабочих дней.</p>
+
+                <h2>7. Изменения в политике</h2>
+                <p>Я могу обновлять этот документ. Новая версия вступает в силу с момента публикации. Рекомендую периодически проверять эту страницу.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo">DEV<span>FOLIO</span></span>
+                <p>Создаю дизайн и код, который приносит продажи.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <a href="index.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="about.html">Обо мне</a>
+                <a href="index.html#projects">Проекты</a>
+                <a href="index.html#reviews">Отзывы</a>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                <a href="mailto:your@email.com">your@email.com</a>
+                <a href="https://t.me/yourhandle" target="_blank">Telegram</a>
+            </div>
+            <div class="footer-legal">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+            </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
+        </div>
+    </footer>
+
+    <script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // При загрузке проверяем сохранённую тему
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light-theme');
+    themeToggle.textContent = '🌙';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    if (body.classList.contains('light-theme')) {
+      localStorage.setItem('theme', 'light');
+      themeToggle.textContent = '🌙';
+    } else {
+      localStorage.setItem('theme', 'dark');
+      themeToggle.textContent = '☀️';
+    }
+  });
+</script>
+
+</body>
+</html>

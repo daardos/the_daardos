@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Обо мне – Senior Frontend разработчик и UI/UX дизайнер.">
+    <title>Обо мне | Daardos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ШАПКА -->
+    <header>
+        <nav>
+            <div class="logo">DEV<span>FOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="index.html#projects">Проекты</a></li>
+                <li><a href="index.html#reviews">Отзывы</a></li>
+                <li><a href="index.html#action">Контакты</a></li>
+                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special">Нету GitHub?</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+              ☀️
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="about-hero reveal">
+            <div>
+                <h1>Привет, я Daardos</h1>
+                <p class="subtitle">Fullstack-разработчик, который делает интерфейсы живыми. Люблю сложные задачи и чистый код.</p>
+            </div>
+        </section>
+
+        <!-- Биография и навыки -->
+        <section class="container reveal">
+            <div class="about-content">
+                <h2>Кто я и чем занимаюсь</h2>
+                <p>Я создаю современные веб-интерфейсы с нуля: от идеи до готового продукта. Уже более 2-ух лет я специализируюсь на разработке сайтов и веб-приложений без использования тяжелых CMS. Мой главный принцип – скорость и надежность.</p>
+                <p>Работаю с HTML5, CSS3, JavaScript (ES6+), React и Next.js. Знаю, как заставить дизайн работать на конверсию, а код – летать. Постоянно изучаю новые технологии и внедряю их в проекты.</p>
+                
+                <h2>Мои технологии</h2>
+                <div class="tech-tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3 / Flexbox / Grid</span>
+                    <span class="tag">JavaScript ES6+</span>
+                    <span class="tag">React & Next.js</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Canvas API</span>
+                    <span class="tag">Figma</span>
+                    <span class="tag">Git / GitHub</span>
+                    <span class="tag">Адаптивная верстка</span>
+                    <span class="tag">БЭМ</span>
+                </div>
+
+                <!-- Статистика -->
+                <h2>Немного цифр</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Завершённых проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2 года</div>
+                        <div class="stat-label">Опыта в разработке</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24ч</div>
+                        <div class="stat-label">Время ответа на заявку</div>
+                    </div>
+                </div>
+
+                <!-- Философия -->
+                <h2>Мой подход</h2>
+                <p>Каждый проект для меня – это не просто работа, а возможность решить задачу клиента наилучшим образом. Я всегда начинаю с анализа аудитории и целей бизнеса, а потом подбираю оптимальные технологии и дизайн. Вы получаете не просто код, а готовый инструмент для роста.</p>
+                <p>Я не использую конструкторы и шаблоны – только ручная работа, которая гарантирует уникальность, скорость и безопасность.</p>
+
+                <!-- CTA блок -->
+                <div class="about-cta reveal">
+                    <h3>Хотите также?</h3>
+                    <p>Обсудим ваш проект и я покажу, как он может выглядеть уже через неделю.</p>
+                    <a href="#action" class="btn">Связаться со мной</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA + форма -->
+        <section id="action" class="cta-form-section reveal">
+            <div class="cta-form-container">
+                <div class="cta-text">
+                    <h2>Остались вопросы?</h2>
+                    <p>Напишите мне сейчас и получите бесплатный аудит задачи + персональные рекомендации в течение 24 часов</p>
+                    <div class="socials-inline">
+                        <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/xpqklalq" method="POST" id="contact-form" class="cta-form">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="email" name="email" placeholder="Email для связи" required>
+                    <textarea name="message" placeholder="Опишите задачу или задайте вопрос" rows="4" required></textarea>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo">DEV<span>FOLIO</span></span>
+                <p>Создаю дизайн и код, который приносит продажи.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <a href="index.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="about.html">Обо мне</a>
+                <a href="index.html#projects">Проекты</a>
+                <a href="index.html#reviews">Отзывы</a>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+            </div>
+            <div class="footer-legal">
+                <a href="privacy.html">Политика конфиденциальности</a>
+                <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+            </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
+        </div>
+    </footer>
+
+    <!-- JS для анимаций и форм -->
+    <script>
+        // Плавный скролл для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Анимация появления при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Отправка формы
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Отправка...';
+            btn.disabled = true;
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                btn.innerText = 'Отправлено!';
+                btn.style.background = '#28a745';
+                form.reset();
+                setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+            } else {
+                btn.innerText = 'Ошибка! Попробуйте снова.';
+                btn.style.background = '#dc3545';
+                setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+            }
+        });
+
+        // Динамический фон за мышкой
+        window.addEventListener('mousemove', e => {
+            document.body.style.setProperty('--x', e.clientX + 'px');
+            document.body.style.setProperty('--y', e.clientY + 'px');
+        });
+
+          const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // При загрузке проверяем сохранённую тему
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light-theme');
+    themeToggle.textContent = '🌙';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    if (body.classList.contains('light-theme')) {
+      localStorage.setItem('theme', 'light');
+      themeToggle.textContent = '🌙';
+    } else {
+      localStorage.setItem('theme', 'dark');
+      themeToggle.textContent = '☀️';
+    }
+  });
+    </script>
+</body>
+</html>
