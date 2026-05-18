@@ -14,15 +14,14 @@ if (window.top !== window.self) {
     font-src 'self' https://fonts.gstatic.com;
     img-src 'self' data:;
     connect-src 'self' https://formspree.io;
-    frame-ancestors 'none';
     base-uri 'self';
     form-action 'self' https://formspree.io;
 ">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Политика конфиденциальности сайта Daardos.">
-    <title>Политика конфиденциальности | Daardos</title>
+    <meta name="description" content="Спасибо за обращение! Я скоро свяжусь с вами.">
+    <title>Спасибо! | Daardos</title>
 
     <!-- Предзагрузочный скрипт для мгновенного применения темы/шрифта/размера -->
     <script>
@@ -63,6 +62,70 @@ if (window.top !== window.self) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;500;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Уникальные стили для страницы благодарности */
+        .thanks-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thanks-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        .thanks-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            animation: fadeUp 0.8s ease-out 0.3s both;
+        }
+
+        .thanks-message {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 500px;
+            margin-bottom: 30px;
+            animation: fadeUp 0.8s ease-out 0.5s both;
+        }
+
+        .thanks-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeUp 0.8s ease-out 0.7s both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Дополнительный акцент для кнопок */
+        .btn-telegram {
+            background: #0088cc;
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
+        }
+        .btn-telegram:hover {
+            background: #0077b5;
+            box-shadow: 0 15px 30px rgba(0, 136, 204, 0.5);
+        }
+    </style>
 </head>
 <body>
     <!-- ШАПКА -->
@@ -83,38 +146,17 @@ if (window.top !== window.self) {
     </header>
 
     <main>
-        <section class="container" style="padding-top: 120px;">
-            <h1 data-i18n="privacy-heading">Политика конфиденциальности</h1>
-            <p style="color: var(--muted);" data-i18n="privacy-date">Дата последнего обновления: 26 мая 2026 г.</p>
-
-            <div style="max-width: 800px; margin: 40px 0; color: var(--text); line-height: 1.7;">
-                <p data-i18n="privacy-intro">Настоящая Политика конфиденциальности объясняет, как я (далее – «владелец сайта», «я») собираю, использую и защищаю персональные данные, которые вы предоставляете при использовании данного сайта-портфолио.</p>
-
-                <h2 data-i18n="privacy-section1-heading">1. Какие данные собираются</h2>
-                <p data-i18n="privacy-section1-text">При заполнении контактной формы (имя, email, сообщение) эти данные передаются через сервис Formspree на мою электронную почту. Я не храню их в базе данных сайта, так как её нет.
-Также хостинг GitHub Pages может автоматически собирать техническую информацию (IP-адрес, тип браузера, User-Agent) в целях безопасности и работоспособности. Эти данные обрабатываются согласно политике конфиденциальности GitHub и недоступны мне как владельцу сайта.</p>
-
-                <h2 data-i18n="privacy-section2-heading">2. Как используются данные</h2>
-                <p data-i18n="privacy-section2-text">Предоставленная информация используется исключительно для связи с вами по вашему запросу (обсуждение проекта, ответы на вопросы). Данные не передаются третьим лицам, не используются для рекламы или спама.</p>
-
-                <h2 data-i18n="privacy-section3-heading">3. Файлы cookie</h2>
-                <p data-i18n="privacy-section3-text">Сайт не использует рекламные или аналитические куки. Настройки внешнего вида (тема, шрифт, язык) сохраняются в локальном хранилище вашего браузера (localStorage) и не передаются на сервер. Вы можете очистить эти данные в настройках браузера в любое время, это не нарушит работу сайта.</p>
-
-                <h2 data-i18n="privacy-section4-heading">4. Безопасность</h2>
-                <p data-i18n="privacy-section4-text">Я принимаю разумные меры для защиты передаваемых данных. Форма отправляется по защищённому протоколу HTTPS. Сервис Formspree также обеспечивает безопасность передачи. Однако помните, что передача данных через интернет не может быть гарантированно защищена на 100%.</p>
-
-                <h2 data-i18n="privacy-section5-heading">5. Сторонние сервисы</h2>
-                <p data-i18n="privacy-section5-text">Для работы контактной формы используется Formspree (formspree.io). Пожалуйста, ознакомьтесь с их политикой конфиденциальности. Сайт размещён на GitHub Pages, который может собирать анонимную статистику посещений в соответствии с политикой GitHub.</p>
-
-                <h2 data-i18n="privacy-section6-heading">6. Ваши права</h2>
-                <p data-i18n="privacy-section6-text">Вы имеете право запросить удаление предоставленных вами данных из моей почты. Для этого свяжитесь со мной через контактную форму или email. Я отвечу в течение 7 рабочих дней.</p>
-
-                <h2 data-i18n="privacy-section7-heading">7. Изменения в политике</h2>
-                <p data-i18n="privacy-section7-text">Я могу обновлять этот документ. Новая версия вступает в силу с момента публикации. Рекомендую периодически проверять эту страницу.</p>
-
-                <p style="margin-top: 30px;" data-i18n="privacy-contact-text">По всем вопросам пишите на <a href="mailto:your@email.com" style="color: var(--accent);">your@email.com</a>.</p>
+        <div class="thanks-hero">
+            <div class="thanks-icon">🎉</div>
+            <h1 class="thanks-title" data-i18n="thanks-title">Спасибо за ваше сообщение!</h1>
+            <p class="thanks-message" data-i18n="thanks-message">
+                Я получил вашу заявку и свяжусь с вами в течение 24 часов.
+                А пока можете посмотреть мои проекты.
+            </p>
+            <div class="thanks-buttons">
+                <a href="index.html" class="btn" data-i18n="thanks-back-home">← На главную</a>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- ФУТЕР -->
@@ -135,8 +177,7 @@ if (window.top !== window.self) {
             <div class="footer-contacts">
                 <h4 data-i18n="footer-contacts-heading">Контакты</h4>
                 <a href="https://github.com/daardos" target="_blank" data-i18n="social-github">GitHub</a>
-                <a href="mailto:your@email.com" data-i18n="social-email">your@email.com</a>
-                <a href="https://t.me/yourhandle" target="_blank" data-i18n="social-telegram">Telegram</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
             </div>
             <div class="footer-legal">
                 <a href="privacy.html" data-i18n="footer-legal">Политика конфиденциальности</a>

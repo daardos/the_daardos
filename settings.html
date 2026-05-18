@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки | Daardos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стеклянные стили для всей страницы настроек */
+        .settings-container {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 40px;
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+        .setting-group {
+            margin-bottom: 35px;
+        }
+        .setting-group h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .option-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        /* Стеклянные кнопки */
+        .option-row button, select {
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            font-weight: 500;
+        }
+        .option-row button:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .option-row button.active {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: #fff;
+            box-shadow: 0 8px 20px rgba(0,209,178,0.4);
+            font-weight: 700;
+        }
+        select {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 50px;
+            color: var(--text);
+            cursor: pointer;
+            outline: none;
+            font-weight: 500;
+        }
+        select option {
+            background: var(--bg);
+            color: var(--text);
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: var(--bg);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,209,178,0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DEV<span>FOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav-home">Главная</a></li>
+                <li><a href="services.html" data-i18n="nav-services">Услуги</a></li>
+                <li><a href="about.html" data-i18n="nav-about">Обо мне</a></li>
+                <li><a href="index.html#projects" data-i18n="nav-projects">Проекты</a></li>
+                <li><a href="index.html#reviews" data-i18n="nav-reviews">Отзывы</a></li>
+                <li><a href="index.html#action" data-i18n="nav-contact">Контакты</a></li>
+                <li><a href="settings.html" data-i18n="nav-settings">⚙️</a></li>
+                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special" data-i18n="nav-special">Нету GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="settings-container">
+        <h1 data-i18n="settings-heading">Настройки</h1>
+
+        <!-- Тема -->
+        <div class="setting-group">
+            <h3 data-i18n="settings-theme">Тема</h3>
+            <div class="option-row" data-setting="theme">
+                <button value="dark" class="active">Тёмная</button>
+                <button value="light">Светлая</button>
+                <button value="auto">Как в системе</button>
+            </div>
+        </div>
+
+        <!-- Язык (теперь кнопки) -->
+        <div class="setting-group">
+            <h3 data-i18n="settings-language">Язык</h3>
+            <div class="option-row" data-setting="lang">
+                <button value="ru" class="active">Русский</button>
+                <button value="en">English</button>
+            </div>
+        </div>
+
+        <!-- Шрифт (теперь кнопки) -->
+        <div class="setting-group">
+            <h3 data-i18n="settings-font">Шрифт</h3>
+            <div class="option-row" data-setting="font">
+                <button value="inter" class="active">Inter</button>
+                <button value="roboto">Roboto</button>
+                <button value="mono">Monospace</button>
+            </div>
+        </div>
+
+        <!-- Акцентный цвет -->
+        <div class="setting-group">
+            <h3 data-i18n="settings-accent">Акцентный цвет</h3>
+            <div class="option-row" data-setting="accent">
+                <button value="#00d1b2" style="background:#00d1b2;color:#000;">Бирюзовый</button>
+                <button value="#7b5cff" style="background:#7b5cff;color:#fff;">Фиолетовый</button>
+                <button value="#ff4da6" style="background:#ff4da6;color:#fff;">Розовый</button>
+            </div>
+        </div>
+
+        <!-- Анимации -->
+        <div class="setting-group">
+            <h3 data-i18n="settings-animations">Анимации</h3>
+            <div class="option-row" data-setting="animations">
+                <button value="on" class="active">Включены</button>
+                <button value="off">Отключены</button>
+            </div>
+        </div>
+
+        <!-- Размер шрифта (теперь кнопки) -->
+        <div class="setting-group">
+            <h3 data-i18n="settings-fontsize">Размер шрифта</h3>
+            <div class="option-row" data-setting="fontsize">
+                <button value="small">Маленький</button>
+                <button value="normal" class="active">Средний</button>
+                <button value="large">Крупный</button>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link" data-i18n="nav-home">← На главную</a>
+    </main>
+
+    <script src="settings.js"></script>
+</body>
+</html>
