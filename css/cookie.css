@@ -1,0 +1,94 @@
+/* =========================================
+   COOKIE.CSS — Уведомление о куках
+   ========================================= */
+
+/* ----- Плашка уведомления ----- */
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(22, 27, 34, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-consent.show {
+  transform: translateY(0);
+}
+
+/* ----- Контейнер содержимого ----- */
+.cookie-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cookie-container p {
+  flex: 1;
+  min-width: 250px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ----- Кнопки ----- */
+.cookie-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-cookie-accept {
+  padding: 10px 24px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--trans);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.btn-cookie-accept:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 209, 178, 0.3);
+}
+
+.btn-cookie-more {
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--trans);
+  font-size: 0.9rem;
+}
+
+.btn-cookie-more:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ----- Адаптив ----- */
+@media (max-width: 768px) {
+  .cookie-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}

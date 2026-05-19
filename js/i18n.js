@@ -1,32 +1,7 @@
-(function() {
-    'use strict';
-
-    const defaults = {
-        theme: 'dark',
-        lang: 'ru',
-        font: 'inter',
-        accent: '#00d1b2',
-        animations: 'on',
-        fontsize: 'normal',
-        background: 'stars',
-        parallax: 'on',
-        glassOpacity: 0.7,
-        borderRadius: 16
-    };
-
-    const fontMap = {
-        inter: "'Inter', system-ui, sans-serif",
-        roboto: "'Roboto', system-ui, sans-serif",
-        mono: "'Fira Code', monospace"
-    };
-    const sizeMap = { small: '14px', normal: '16px', large: '18px' };
-
     const translations = {
     ru: {
         // Главная
         'hero-title': 'Daardos',
-        'hero-subtitle': 'Frontend Developer • UI/UX Designer',
-        'hero-btn': 'Смотреть работы',
         'about-heading': 'Обо мне',
         'about-text': 'Я специализируюсь на создании высокопроизводительных интерфейсов. Мой код чист, как слеза, а дизайн продуман до последнего пикселя.',
         'skills-html': 'HTML5',
@@ -127,7 +102,7 @@
         'privacy-section2-heading': '2. Как используются данные',
         'privacy-section2-text': 'Предоставленная информация используется исключительно для связи с вами по вашему запросу (обсуждение проекта, ответы на вопросы). Данные не передаются третьим лицам, не используются для рекламы или спама.',
         'privacy-section3-heading': '3. Файлы cookie',
-        'privacy-section3-text': 'Сайт может использовать минимальные технические куки (например, для сохранения состояния форм), но не применяет трекинговые или рекламные куки. Вы можете отключить куки в настройках браузера, это не повлияет на работоспособность сайта.',
+        'privacy-section3-text': 'Наш сайт не использует файлы cookie (включая технические, трекинговые или рекламные) для сбора и хранения каких-либо данных о пользователях. Мы не отслеживаем ваши действия в интернете',
         'privacy-section4-heading': '4. Безопасность',
         'privacy-section4-text': 'Я принимаю разумные меры для защиты передаваемых данных. Форма отправляется по защищённому протоколу HTTPS. Сервис Formspree также обеспечивает безопасность передачи. Однако помните, что передача данных через интернет не может быть гарантированно защищена на 100%.',
         'privacy-section5-heading': '5. Сторонние сервисы',
@@ -188,12 +163,25 @@
         'settings-parallax': 'Параллакс фона',
         'settings-glass-opacity': 'Прозрачность стекла',
         'settings-border-radius': 'Скругление углов',
+        'hero-greeting': 'Привет, я',
+        'hero-subtitle': 'Создаю современные веб‑интерфейсы, которые приносят продажи',
+        'hero-cta': 'Обсудить проект',
+        'hero-btn': 'Смотреть работы',
+        'hero-adv-1': '⚡ Индивидуальный подход',
+        'hero-adv-2': '🎯 Оформлю заказ на Kwork',
+        'hero-adv-3': '💬 Ответ за 24 часа',
+        'hero-adv-4': '🧩 Чистый код без шаблонов',
+        'hero-adv-5': '🚀 Готовый проект за 3 дня',
+        'cookie-text': 'Мы используем локальное хранилище браузера для сохранения ваших настроек (тема, язык, шрифт). Продолжая использовать сайт, вы соглашаетесь с этим.',
+        'cookie-accept': 'Принять',
+        'cookie-more': 'Подробнее',
+        'stats-visits': '👋 Заходов:',
+        'stats-last-visit': '🕒 Последний визит:',
+        'stats-time-spent': '⏱️ Время на сайте:',
     },
     en: {
         // Главная
         'hero-title': 'Daardos',
-        'hero-subtitle': 'Frontend Developer • UI/UX Designer',
-        'hero-btn': 'View works',
         'about-heading': 'About me',
         'about-text': 'I specialize in creating high-performance interfaces. My code is clean as a tear, and design is thought out to the last pixel.',
         'skills-html': 'HTML5',
@@ -355,61 +343,23 @@
         'settings-parallax': 'Parallax',
         'settings-glass-opacity': 'Glass opacity',
         'settings-border-radius': 'Border radius',
+        'hero-greeting': 'Hi, I am',
+        'hero-subtitle': 'I craft modern web interfaces that drive sales',
+        'hero-cta': 'Discuss a project',
+        'hero-btn': 'View works',
+        'hero-adv-1': '⚡ Custom approach',
+        'hero-adv-2': '🎯 I will place an order on Kwork',
+        'hero-adv-3': '💬 Reply within 24h',
+        'hero-adv-4': '🧩 Clean code, no templates',
+        'hero-adv-5': '🚀 Ready project in 3 days',
+        'cookie-text': 'We use data storage technologies on your device to ensure',
+        'cookie-accept': 'Accept',
+        'cookie-more': 'Learn more',
+        'stats-visits': '👋 Visits:',
+        'stats-last-visit': '🕒 Last visit:',
+        'stats-time-spent': '⏱️ Time on site:',
     }
 };
-
-    function getSettings() {
-        try { return JSON.parse(localStorage.getItem('site-settings')) || {}; }
-        catch (e) { return {}; }
-    }
-
-    function saveSettings(obj) {
-        const current = getSettings();
-        const merged = { ...current, ...obj };
-        localStorage.setItem('site-settings', JSON.stringify(merged));
-        applySettings(merged);
-    }
-
-    function applySettings(settings) {
-        const body = document.body;
-        const root = document.documentElement;
-
-        // Тема
-        body.classList.remove('light-theme', 'auto-theme');
-        if (settings.theme === 'light') {
-            body.classList.add('light-theme');
-        } else if (settings.theme === 'auto') {
-            body.classList.add('auto-theme');
-            if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-                body.classList.add('light-theme');
-            }
-        }
-
-        root.style.setProperty('--accent', settings.accent || defaults.accent);
-        root.style.setProperty('--font-family', fontMap[settings.font] || fontMap.inter);
-        root.style.setProperty('--base-font-size', sizeMap[settings.fontsize] || sizeMap.normal);
-
-        // Анимации
-        if (settings.animations === 'off') body.classList.add('no-animations');
-        else body.classList.remove('no-animations');
-
-        // Фон и параллакс (применяем через классы к body)
-        body.classList.remove('bg-stars', 'bg-nebula', 'bg-static');
-        body.classList.add('bg-' + (settings.background || 'stars'));
-        if (settings.parallax === 'off') body.classList.add('no-parallax');
-        else body.classList.remove('no-parallax');
-
-        // Стекло и скругление
-        root.style.setProperty('--glass-opacity', settings.glassOpacity || 0.7);
-        root.style.setProperty('--border-radius', (settings.borderRadius || 16) + 'px');
-
-        if (settings.lang) applyLanguage(settings.lang);
-
-        // Обновляем интерфейс настроек, если мы на странице настроек
-        if (document.querySelector('.settings-container')) {
-            updateSettingsUI(settings);
-        }
-    }
 
     function applyLanguage(lang) {
         const dict = translations[lang] || translations.ru;
@@ -422,104 +372,3 @@
             if (dict[key]) el.placeholder = dict[key];
         });
     }
-
-    function updateSettingsUI(settings) {
-        document.querySelectorAll('[data-setting]').forEach(group => {
-            const settingName = group.getAttribute('data-setting');
-            const currentValue = settings[settingName] || defaults[settingName];
-
-            // Кнопки
-            const buttons = group.querySelectorAll('button');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (String(btn.value).trim() === String(currentValue).trim()) {
-                    btn.classList.add('active');
-                }
-            });
-
-            // Ползунки range
-            const range = group.querySelector('input[type="range"]');
-            if (range) {
-                range.value = currentValue;
-                // Обновляем фон слайдера (опционально)
-                const min = range.min || 0, max = range.max || 100;
-                range.style.background = `linear-gradient(to right, var(--accent) 0%, var(--accent) ${(currentValue-min)/(max-min)*100}%, rgba(255,255,255,0.2) ${(currentValue-min)/(max-min)*100}%)`;
-            }
-        });
-    }
-
-    // Инициализация после загрузки DOM
-    document.addEventListener('DOMContentLoaded', () => {
-        const saved = getSettings();
-        const merged = { ...defaults, ...saved };
-        applySettings(merged);
-        if (JSON.stringify(saved) !== JSON.stringify(merged)) {
-            localStorage.setItem('site-settings', JSON.stringify(merged));
-        }
-
-        // Управление вкладками
-        if (document.querySelector('.tabs')) {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const contents = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const target = tab.dataset.tab;
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    contents.forEach(c => c.classList.remove('active'));
-                    document.getElementById(target).classList.add('active');
-                });
-            });
-        }
-
-        // Обработчики для страницы настроек
-        if (document.querySelector('.settings-container')) {
-            // Восстановление UI
-            updateSettingsUI(merged);
-            setTimeout(() => {
-                const current = getSettings();
-                updateSettingsUI({ ...defaults, ...current });
-            }, 20);
-
-            // Клики по кнопкам
-            document.querySelectorAll('[data-setting]').forEach(group => {
-                const settingName = group.getAttribute('data-setting');
-
-                group.addEventListener('click', (e) => {
-                    const btn = e.target.closest('button');
-                    if (!btn) return;
-                    const value = btn.value;
-                    group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    saveSettings({ [settingName]: value });
-                });
-
-                // Изменение ползунков
-                group.addEventListener('input', (e) => {
-                    if (e.target.tagName === 'INPUT' && e.target.type === 'range') {
-                        const val = e.target.value;
-                        saveSettings({ [settingName]: val });
-                    }
-                });
-            });
-        }
-
-        // Авто-тема
-        if (merged.theme === 'auto') {
-            window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-                if (getSettings().theme === 'auto') {
-                    const newSettings = { ...getSettings(), theme: 'auto' };
-                    applySettings(newSettings);
-                }
-            });
-        }
-    });
-
-    // Синхронизация между вкладками
-    window.addEventListener('storage', (e) => {
-        if (e.key === 'site-settings' && e.newValue) {
-            const newSettings = JSON.parse(e.newValue);
-            applySettings({ ...defaults, ...newSettings });
-        }
-    });
-})();

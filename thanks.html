@@ -186,6 +186,16 @@ if (window.top !== window.self) {
             <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" data-i18n="back-to-top">↑ Наверх</button>
         </div>
     </footer>
+    <!-- Cookie Consent -->
+<div id="cookie-consent" class="cookie-consent">
+    <div class="cookie-container">
+        <p data-i18n="cookie-text">Мы используем технические куки и локальное хранилище для сохранения ваших настроек и обеспечения работы сайта. Продолжая использовать сайт, вы соглашаетесь с этим.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="btn-cookie-accept" data-i18n="cookie-accept">Принять</button>
+            <a href="privacy.html" class="btn-cookie-more" data-i18n="cookie-more">Подробнее</a>
+        </div>
+    </div>
+</div>
 <script>
     // Автодобавление rel="noopener noreferrer" на все внешние ссылки
 document.addEventListener('DOMContentLoaded', function() {
@@ -203,8 +213,38 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelectorAll('a[target="_blank"]:not([rel*="noopener"])').forEach(link => {
     link.setAttribute('rel', 'noopener noreferrer');
 });
+
+// Cookie Consent
+(function() {
+    const consent = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('cookie-accept');
+
+    // Уже принято – не показываем
+    if (localStorage.getItem('cookie-accepted') === 'true') {
+        return;
+    }
+
+    // Показываем плашку через 0.5 секунды
+    setTimeout(() => {
+        consent.classList.add('show');
+    }, 500);
+
+    // Принимаем
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie-accepted', 'true');
+        consent.classList.remove('show');
+        setTimeout(() => {
+            consent.style.display = 'none';
+        }, 500);
+    });
+})();
 </script>
-    <!-- Централизованные настройки -->
-    <script src="settings.js"></script>
+
+<script src="js/security.js"></script>
+<script src="js/core.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/settings-ui.js"></script>
+<script src="js/settings.js"></script>
+ 
 </body>
 </html>

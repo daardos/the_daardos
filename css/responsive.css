@@ -1,0 +1,34 @@
+/* ===== АДАПТИВ ===== */
+@media (max-width: 850px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        margin: 0 20px;
+    }
+    h2 {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body { font-size: 16px; }
+    h1 { font-size: 2.5rem !important; }
+    h2 { font-size: 2rem !important; }
+    .container { padding: 60px 20px; }
+    header { background: rgba(11,14,20,0.95); }
+    nav { flex-wrap: wrap; height: auto; padding: 15px 20px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; margin-top: 10px; }
+    .hero { background-attachment: scroll !important; height: auto; min-height: 100vh; padding: 120px 20px 60px; }
+    .btn { display: block; width: 100%; margin: 15px 0; text-align: center; }
+    .grid { grid-template-columns: 1fr; gap: 20px; }
+    .card:hover { transform: none !important; box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; }
+    .cta-form-container { grid-template-columns: 1fr; gap: 40px; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    .back-to-top { justify-self: center; margin-top: 20px; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.7rem !important; }
+    .card-body { padding: 20px; }
+}

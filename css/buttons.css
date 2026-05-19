@@ -1,0 +1,323 @@
+/* =========================================
+   BUTTONS.CSS — Все кнопки и их анимации
+   ========================================= */
+
+/* ----- Базовая кнопка ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 35px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--trans);
+  box-shadow: 0 10px 20px rgba(0, 209, 178, 0.2);
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  font-family: inherit;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: var(--accent-hover);
+  box-shadow: 0 15px 30px rgba(0, 209, 178, 0.4);
+}
+
+/* ----- Ripple-эффект ----- */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* btn-primary — градиентная пульсирующая кнопка */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #00b89c, #00d1b2);
+  background-size: 200% 200%;
+  color: var(--bg);
+  padding: 18px 40px;
+  border-radius: 60px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 209, 178, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: gradientMove 4s ease infinite, softPulse 2.5s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(0, 209, 178, 0.7);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 10px 30px rgba(0, 209, 178, 0.4); }
+  50% { box-shadow: 0 10px 50px rgba(0, 209, 178, 0.7); }
+}
+
+/* ----- Прозрачная кнопка в Hero ----- */
+.btn-outline-hero {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 18px 40px;
+  border-radius: 60px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 0 rgba(0, 209, 178, 0);
+}
+
+.btn-outline-hero::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent), #fff, var(--accent));
+  background-size: 300% 300%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+  filter: blur(8px);
+}
+
+.btn-outline-hero:hover {
+  color: var(--bg);
+  border-color: transparent;
+  box-shadow: 0 0 30px rgba(0, 209, 178, 0.6);
+}
+
+.btn-outline-hero:hover::after {
+  opacity: 1;
+}
+
+/* ----- Кнопка Telegram ----- */
+.btn-telegram {
+  background: #0088cc;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 136, 204, 0.3);
+  padding: 16px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-telegram:hover {
+  background: #0077b5;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 136, 204, 0.5);
+}
+
+/* ----- Кнопка Kwork (портал) ----- */
+.btn-kwork-portal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, var(--accent), #00997a);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 60px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 209, 178, 0.3);
+  isolation: isolate;
+}
+
+.btn-kwork-portal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #fff, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn-kwork-portal:hover::before {
+  opacity: 0.15;
+}
+
+.btn-glare {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+  transform: rotate(30deg);
+  pointer-events: none;
+  animation: glare-sweep 3s ease-in-out infinite;
+}
+
+@keyframes glare-sweep {
+  0%, 100% { transform: rotate(30deg) translate(-30%, -30%); }
+  50% { transform: rotate(30deg) translate(30%, 30%); }
+}
+
+.btn-kwork-portal:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 209, 178, 0.5);
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-icon {
+  position: relative;
+  z-index: 1;
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+.btn-kwork-portal:hover .btn-icon {
+  transform: translateX(5px);
+}
+
+/* ----- Кнопка «Наверх» ----- */
+.back-to-top {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--trans);
+  justify-self: end;
+  align-self: end;
+}
+
+.back-to-top:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ----- Кнопки cookie ----- */
+.btn-cookie-accept {
+  padding: 10px 24px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--trans);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.btn-cookie-accept:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 209, 178, 0.3);
+}
+
+.btn-cookie-more {
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--trans);
+  font-size: 0.9rem;
+}
+
+.btn-cookie-more:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ----- Кнопка «Узнать больше» (for_me) ----- */
+.for_me {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+}
+
+.for_me::after {
+  content: '→';
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.for_me::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.for_me:hover {
+  color: var(--bg);
+  box-shadow: 0 10px 25px rgba(0, 209, 178, 0.3);
+  transform: translateY(-3px);
+}
+
+.for_me:hover::before {
+  left: 0;
+}
+
+.for_me:hover::after {
+  transform: translateX(6px);
+}
+
+.for_me:active {
+  transform: translateY(-1px) scale(0.97);
+  transition: all 0.1s;
+}

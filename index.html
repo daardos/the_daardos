@@ -50,7 +50,6 @@ if (window.top !== window.self) {
     <meta name="twitter:title" content="Daardos — Senior Frontend Developer & UI/UX Designer">
     <meta name="twitter:description" content="Создаю современные веб‑интерфейсы. Проекты, услуги, контакты.">
     <meta name="twitter:image" content="https://daardos.github.io/DevFolio/preview.jpg">
-    <meta name="twitter:site" content="@daardos"> <!-- если есть Twitter -->
 
     <!-- Мобильная оптимизация -->
     <meta name="theme-color" content="#0b0e14">
@@ -122,17 +121,68 @@ if (window.top !== window.self) {
 
     <main>
         <!-- Hero -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="reveal active" data-i18n="hero-title">Daardos</h1>
-                <p class="hero-sub reveal active" data-i18n="hero-subtitle">Frontend Developer • UI/UX Designer</p>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="#projects" class="btn reveal active" data-i18n="hero-btn">Смотреть работы</a>
-                    <a href="#action" class="btn reveal active" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);" data-i18n="cta-heading">Обсудить проект</a>
+<section id="home" class="hero hero-enhanced">
+    <!-- Фоновые элементы -->
+    <div class="hero-bg-glow"></div>
+    <div class="hero-bg-particles" id="hero-particles"></div>
+
+    <!-- Контент -->
+    <div class="hero-container">
+        <!-- Левая колонка: преимущества -->
+        <div class="hero-left">
+            <ul class="hero-advantages">
+                <li data-i18n="hero-adv-1">⚡ Индивидуальный подход</li>
+                <li data-i18n="hero-adv-2">🎯 Оформлю заказ на Kwork</li>
+                <li data-i18n="hero-adv-3">💬 Ответ за 24 часа</li>
+                <li data-i18n="hero-adv-4">🧩 Чистый код без шаблонов</li>
+                <li data-i18n="hero-adv-5">🚀 Готовый проект за 3 дня</li>
+            </ul>
+            <div class="hero-stats" id="user-stats">
+                <p data-i18n="stats-visits">👋 Заходов: <span id="visit-count">1</span></p>
+                <p data-i18n="stats-last-visit">🕒 Последний визит: <span id="last-visit">сегодня</span></p>
+                <p data-i18n="stats-time-spent">⏱️ Время на сайте: <span id="time-spent">0 мин</span></p>
+            </div>
+        </div>
+        <!-- Центральная колонка: имя и кнопки -->
+        <div class="hero-center">
+            <p class="hero-greeting" data-i18n="hero-greeting">Привет, я</p>
+            <h1 class="hero-title" data-i18n="hero-title">Daardos</h1>
+            <p class="hero-sub" data-i18n="hero-subtitle">Создаю современные веб‑интерфейсы, которые приносят продажи</p>
+            <div class="hero-buttons">
+                <a href="#action" class="btn btn-outline-hero" data-i18n="hero-cta">Обсудить проект</a>
+                <a href="#projects" class="btn btn-outline-hero" data-i18n="hero-btn">Смотреть работы</a>
+            </div>
+        </div>
+
+        <!-- Правая колонка: декорация -->
+<div class="hero-right">
+    <div class="hero-visual">
+        <div class="code-snippet" id="code-snippet">
+            <div class="code-header">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="code-body">
+                <pre><code>const build = () => {
+  return <span class="code-string">'success'</span>;
+};</code></pre>
+                <div class="code-hidden" id="code-hidden">
+                    <pre><code>// Дополнительно
+<span class="code-string">Kwork:</span> <a href="https://kwork.ru/user/daardos" style="color: aliceblue; text-decoration: none;">daardos</a>
+<span class="code-string">Partner:</span> <a href="https://ktehepknh.github.io/GamerFan/" style="color: aliceblue; text-decoration: none;">Ktehephn</a>
+<span class="code-string">Projects:</span> 3+ years
+<span class="code-string">Status:</span> Open for work</code></pre>
                 </div>
             </div>
-            <div class="scroll-indicator"></div>
-        </section>
+            <span class="cursor-blink" id="cursor-blink">_</span>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div class="scroll-indicator"></div>
+</section>
 
         <!-- Обо мне (кратко) -->
         <section id="about" class="container reveal">
@@ -164,7 +214,7 @@ if (window.top !== window.self) {
             <div class="grid">
                 <!-- Карточка 1 -->
                 <article class="card" data-category="game" data-url="https://daardos.github.io/Neon-Bird/">
-                    <img src="bird.png" alt="" loading="lazy">
+                    <img src="/avatar/bird.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project1-title">Neon bird</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project1-desc">Хардкорная игра на чистом JS с уникальной физикой.</p>
@@ -177,7 +227,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 2 -->
                 <article class="card" data-category="app" data-url="https://daardos.github.io/DevOS-Hub/">
-                    <img src="devs.png" alt="" loading="lazy">
+                    <img src="/avatar/devs.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project2-title">DevOS Hub</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project2-desc">Среда разработки в браузере для продуктивной работы.</p>
@@ -190,7 +240,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 3 -->
                 <article class="card" data-category="app" data-url="https://daardos.github.io/CyberType-Neon-Ultimate/">
-                    <img src="cubertype.png" alt="" loading="lazy">
+                    <img src="/avatar/cubertype.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project3-title">CyberType Neon</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project3-desc">Тренажер слепой печати с киберпанк-эстетикой.</p>
@@ -203,7 +253,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 4 -->
                 <article class="card" data-category="app" data-url="https://daardos.github.io/prompt-library/">
-                    <img src="promt.png" alt="" loading="lazy">
+                    <img src="/avatar/promt.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project4-title">Prompt Library</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project4-desc">База промптов для AI с удобным копированием.</p>
@@ -216,7 +266,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 5 -->
                 <article class="card" data-category="design" data-url="https://daardos.github.io/neon-clock/">
-                    <img src="matrix.png" alt="" loading="lazy">
+                    <img src="/avatar/matrix.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project5-title">Matrix Clock</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project5-desc">Время в потоке цифрового дождя на Canvas.</p>
@@ -229,7 +279,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 6 -->
                 <article class="card" data-category="design" data-url="https://daardos.github.io/neon-morphing-js">
-                    <img src="chas.png" alt="" loading="lazy">
+                    <img src="/avatar/chas.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project6-title">Neon Morphing</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project6-desc">Интерактивная физика и морфинг частиц.</p>
@@ -242,7 +292,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 7 -->
                 <article class="card" data-category="game">
-                    <img src="sance.png" alt="" loading="lazy" data-url="https://daardos.github.io/snake/">
+                    <img src="/avatar/sance.png" alt="" loading="lazy" data-url="https://daardos.github.io/snake/">
                     <div class="card-body">
                         <h3 data-i18n="project7-title">Cyber Snake</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project7-desc">Классика змейки в новом неоновом оформлении.</p>
@@ -255,7 +305,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 8 -->
                 <article class="card" data-category="game" data-url="https://daardos.github.io/Cyber-Pandemic/">
-                    <img src="pandemic.png" alt="" loading="lazy">
+                    <img src="/avatar/pandemic.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project8-title">Cyber Pandemic</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project8-desc">Симулятор вирусного заражения на JS.</p>
@@ -268,7 +318,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 9 -->
                 <article class="card" data-category="design" data-url="https://daardos.github.io/PHYSICS/">
-                    <img src="free.png" alt="" loading="lazy">
+                    <img src="/avatar/free.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project9-title">PHYSICS</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project9-desc">Визуализация законов физики в реальном времени.</p>
@@ -281,7 +331,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 10 -->
                 <article class="card" data-category="design" data-url="https://daardos.github.io/3D-cart/">
-                    <img src="carts.png" alt="" loading="lazy">
+                    <img src="/avatar/carts.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project10-title">3D Cart</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project10-desc">Интерактивные 3D карты для визуализации данных.</p>
@@ -294,7 +344,7 @@ if (window.top !== window.self) {
 
                 <!-- Карточка 11 -->
                 <article class="card" data-category="design" data-url="https://daardos.github.io/JS/">
-                    <img src="JS.png" alt="" loading="lazy">
+                    <img src="/avatar/JS.png" alt="" loading="lazy">
                     <div class="card-body">
                         <h3 data-i18n="project11-title">JS Mastery</h3>
                         <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;" data-i18n="project11-desc">Коллекция сложных кейсов и эффектов на чистом JavaScript.</p>
@@ -376,7 +426,16 @@ if (window.top !== window.self) {
             <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" data-i18n="back-to-top">↑ Наверх</button>
         </div>
     </footer>
-
+<!-- Cookie Consent -->
+<div id="cookie-consent" class="cookie-consent">
+    <div class="cookie-container">
+        <p data-i18n="cookie-text">Мы используем технические куки и локальное хранилище для сохранения ваших настроек и обеспечения работы сайта. Продолжая использовать сайт, вы соглашаетесь с этим.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="btn-cookie-accept" data-i18n="cookie-accept">Принять</button>
+            <a href="privacy.html" class="btn-cookie-more" data-i18n="cookie-more">Подробнее</a>
+        </div>
+    </div>
+</div>
     <!-- JS для анимаций и формы -->
     <script>
         // Плавный скролл
@@ -483,11 +542,36 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelectorAll('a[target="_blank"]:not([rel*="noopener"])').forEach(link => {
     link.setAttribute('rel', 'noopener noreferrer');
 });
+
+document.getElementById('code-snippet').addEventListener('click', function() {
+    this.classList.toggle('expanded');
+});
+
+// Cookie Consent
+(function() {
+    const consent = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('cookie-accept');
+
+    // Уже принято – не показываем
+    if (localStorage.getItem('cookie-accepted') === 'true') {
+        return;
+    }
+
+    // Показываем плашку через 0.5 секунды
+    setTimeout(() => {
+        consent.classList.add('show');
+    }, 500);
+
+    // Принимаем
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie-accepted', 'true');
+        consent.classList.remove('show');
+        setTimeout(() => {
+            consent.style.display = 'none';
+        }, 500);
+    });
+})();
     </script>
-
-    <!-- Централизованные настройки -->
-    <script src="settings.js"></script>
-
 <!-- Кнопка "Поделиться" -->
 <div class="share-widget" id="share-widget">
     <button class="share-toggle" id="share-toggle" title="Поделиться">📤</button>
@@ -500,5 +584,11 @@ document.querySelectorAll('a[target="_blank"]:not([rel*="noopener"])').forEach(l
     </div>
 </div>
 
+<script src="js/security.js"></script>
+<script src="js/core.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/settings-ui.js"></script>
+<script src="js/settings.js"></script>
+ 
 </body>
 </html>
