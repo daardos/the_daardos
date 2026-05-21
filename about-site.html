@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Благодарность от Daardos.">
-    <title>Спасибо! | Daardos</title>
+    <meta name="description" content="Техническая информация о сайте Daardos.">
+    <title>О сайте | Daardos</title>
 
     <!-- Предзагрузка темы -->
     <script>
@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ШАПКА -->
 <header>
     <nav>
         <div class="logo">DEV<span>FOLIO</span></div>
@@ -74,17 +73,58 @@
 </header>
 
     <main>
-        <section class="thank-you-hero">
-            <div class="thank-you-container">
-                <div class="thank-you-icon">💎</div>
-                <h1 data-i18n="thank-you-title">Спасибо, что заглянули!</h1>
-                <p class="thank-you-message" data-i18n="thank-you-message">
-                    Я ценю ваш интерес к моему портфолио. Надеюсь, вы нашли то, что искали. 
-                    Буду рад воплотить ваши идеи в жизнь.
+        <section class="about-site-section">
+            <div class="container">
+                <h1 data-i18n="about-site-title">🛠️ О сайте</h1>
+                <p class="about-site-intro" data-i18n="about-site-intro">
+                    Технические детали, история версий и технологии, на которых построен этот проект.
                 </p>
-                <div class="thank-you-links">
-                    <a href="index.html#action" class="btn btn-primary" data-i18n="thank-you-contact-btn">Связаться со мной</a>
-                    <a href="index.html#projects" class="btn btn-outline-hero" data-i18n="thank-you-projects-btn">Смотреть проекты</a>
+
+                <div class="about-site-grid">
+                    <div class="about-site-card">
+                        <h2 data-i18n="about-site-tech-title">🔧 Технологический стек</h2>
+                        <ul>
+                            <li>HTML5, CSS3 (Flexbox, Grid, Custom Properties)</li>
+                            <li>JavaScript (ES6+) без фреймворков</li>
+                            <li>Canvas API для интерактивных элементов</li>
+                            <li>Google Fonts (Inter, Roboto, Fira Code)</li>
+                            <li>Formspree для обработки форм</li>
+                            <li>GitHub Pages для хостинга</li>
+                            <li>LocalStorage для сохранения настроек</li>
+                        </ul>
+                    </div>
+                    <div class="about-site-card">
+                        <h2 data-i18n="about-site-features-title">✨ Возможности</h2>
+                        <ul>
+                            <li data-i18n="about-site-feature1">Мультиязычность (RU / EN)</li>
+                            <li data-i18n="about-site-feature2">Тёмная / светлая тема</li>
+                            <li data-i18n="about-site-feature3">Сохранение настроек без сервера</li>
+                            <li data-i18n="about-site-feature4">Интерактивная карта навыков</li>
+                            <li data-i18n="about-site-feature5">Калькулятор стоимости (в планах)</li>
+                            <li data-i18n="about-site-feature6">Виджет «Поделиться»</li>
+                            <li data-i18n="about-site-feature7">Модальное окно с бонусом</li>
+                        </ul>
+                    </div>
+                    <div class="about-site-card">
+                        <h2 data-i18n="about-site-changelog-title">📝 История версий</h2>
+                        <div class="changelog">
+                            <div class="changelog-item">
+                                <span class="version">v2.0</span>
+                                <span class="date">Май 2026</span>
+                                <p data-i18n="changelog-v2">Добавлены новые страницы, карта навыков, оптимизация под телефоны.</p>
+                            </div>
+                            <div class="changelog-item">
+                                <span class="version">v1.5</span>
+                                <span class="date">Апрель 2026</span>
+                                <p data-i18n="changelog-v15">Добавлена мультиязычность, настройки темы и шрифтов.</p>
+                            </div>
+                            <div class="changelog-item">
+                                <span class="version">v1.0</span>
+                                <span class="date">Март 2026</span>
+                                <p data-i18n="changelog-v1">Запуск основной версии портфолио с проектами и контактами.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -124,6 +164,7 @@
     <script src="js/settings-ui.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/responsive.js"></script>
+    <script src="js/bonus-modal.js"></script>
     <script src="js/share.js"></script>
 </body>
 </html>

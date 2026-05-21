@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Благодарность от Daardos.">
-    <title>Спасибо! | Daardos</title>
+    <meta name="description" content="Часто задаваемые вопросы — Daardos.">
+    <title>FAQ | Daardos</title>
 
     <!-- Предзагрузка темы -->
     <script>
@@ -74,17 +74,37 @@
 </header>
 
     <main>
-        <section class="thank-you-hero">
-            <div class="thank-you-container">
-                <div class="thank-you-icon">💎</div>
-                <h1 data-i18n="thank-you-title">Спасибо, что заглянули!</h1>
-                <p class="thank-you-message" data-i18n="thank-you-message">
-                    Я ценю ваш интерес к моему портфолио. Надеюсь, вы нашли то, что искали. 
-                    Буду рад воплотить ваши идеи в жизнь.
-                </p>
-                <div class="thank-you-links">
-                    <a href="index.html#action" class="btn btn-primary" data-i18n="thank-you-contact-btn">Связаться со мной</a>
-                    <a href="index.html#projects" class="btn btn-outline-hero" data-i18n="thank-you-projects-btn">Смотреть проекты</a>
+        <section class="faq-section">
+            <div class="container">
+                <h1 data-i18n="faq-title">Частые вопросы</h1>
+                <p class="faq-subtitle" data-i18n="faq-subtitle">Ответы на самые популярные вопросы перед заказом</p>
+
+                <div class="faq-list">
+                    <!-- Вопрос 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq-q1">Делаете ли вы правки?</button>
+                        <div class="faq-answer" data-i18n="faq-a1">Да, я предоставляю до 3 бесплатных правок на каждом этапе. Мелкие корректировки включены в стоимость.</div>
+                    </div>
+                    <!-- Вопрос 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq-q2">Какие сроки выполнения?</button>
+                        <div class="faq-answer" data-i18n="faq-a2">Обычный лендинг — 2–4 дня. Многостраничный сайт — 5–10 дней. Точные сроки обсуждаем после брифинга.</div>
+                    </div>
+                    <!-- Вопрос 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq-q3">Что нужно для начала работы?</button>
+                        <div class="faq-answer" data-i18n="faq-a3">Макет (Figma или просто референсы), текст и ваши пожелания. Если макета нет — помогу с прототипом.</div>
+                    </div>
+                    <!-- Вопрос 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq-q4">Работаете ли вы с готовым дизайном?</button>
+                        <div class="faq-answer" data-i18n="faq-a4">Да, перенесу ваш макет в чистый HTML/CSS/JS пиксель в пиксель.</div>
+                    </div>
+                    <!-- Вопрос 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" data-i18n="faq-q5">Можно ли заказать только вёрстку без программирования?</button>
+                        <div class="faq-answer" data-i18n="faq-a5">Конечно, я разделяю услуги: могу просто сверстать, а могу добавить JavaScript и анимации.</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -118,12 +138,28 @@
         </div>
     </footer>
 
+    <!-- Скрипты -->
     <script src="js/security.js"></script>
     <script src="js/core.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/settings-ui.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/responsive.js"></script>
-    <script src="js/share.js"></script>
+    
+
+    <!-- Аккордеон -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                // Закрываем все остальные
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    if (i !== item) i.classList.remove('active');
+                });
+                // Переключаем текущий
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>

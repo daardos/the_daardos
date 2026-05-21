@@ -101,3 +101,60 @@ body.light-theme .theme-toggle {
   background: var(--accent);
   color: #fff;
 }
+
+/* ----- Выпадающее меню «Ещё» ----- */
+.nav-more {
+    position: relative;
+}
+
+.nav-more-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px 0;
+    font-family: inherit;
+    transition: var(--trans);
+}
+
+.nav-more-btn:hover {
+    color: var(--accent);
+}
+
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px 0;
+    min-width: 180px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+    list-style: none;
+    flex-direction: column;
+}
+
+.nav-more:hover .nav-dropdown,
+.nav-more:focus-within .nav-dropdown {
+    display: flex;
+}
+
+.nav-dropdown li a {
+    display: block;
+    padding: 8px 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.nav-dropdown li a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--accent);
+}

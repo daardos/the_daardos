@@ -108,3 +108,17 @@
   align-items: center;
   gap: 6px;
 }
+
+.partner-banner {
+    text-align: center;
+    padding: 15px;
+    background: rgba(22, 27, 34, 0.8);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+.partner-banner a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}

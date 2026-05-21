@@ -68,21 +68,34 @@ if (window.top !== window.self) {
 </head>
 <body>
     <!-- ШАПКА -->
-    <header>
-        <nav>
-            <div class="logo">DEV<span>FOLIO</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html" data-i18n="nav-home">Главная</a></li>
-                <li><a href="services.html" data-i18n="nav-services">Услуги</a></li>
-                <li><a href="about.html" data-i18n="nav-about">Обо мне</a></li>
-                <li><a href="index.html#projects" data-i18n="nav-projects">Проекты</a></li>
-                <li><a href="index.html#reviews" data-i18n="nav-reviews">Отзывы</a></li>
-                <li><a href="index.html#action" data-i18n="nav-contact">Контакты</a></li>
-                <li><a href="settings.html" data-i18n="nav-settings">⚙️</a></li>
-                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special" data-i18n="nav-special">Нету GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <div class="logo">DEV<span>FOLIO</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav-home">Главная</a></li>
+            <li><a href="services.html" data-i18n="nav-services">Услуги</a></li>
+            <li><a href="about.html" data-i18n="nav-about">Обо мне</a></li>
+            <li><a href="index.html#projects" data-i18n="nav-projects">Проекты</a></li>
+            <li><a href="index.html#action" data-i18n="nav-contact">Контакты</a></li>
+            <li class="nav-more">
+                <button class="nav-more-btn" aria-label="Ещё" data-i18n="nav-more">Ещё ▾</button>
+                <ul class="nav-dropdown">
+                    <li><a href="resume.html" data-i18n="nav-resume">Резюме</a></li>
+                    <li><a href="blog.html" data-i18n="nav-blog">Блог</a></li>
+                    <li><a href="technologies.html" data-i18n="nav-technologies">Технологии</a></li>
+                    <li><a href="faq.html" data-i18n="nav-faq">FAQ</a></li>
+                    <li><a href="roadmap.html" data-i18n="nav-roadmap">Roadmap</a></li>
+                    <li><a href="skills-map.html" data-i18n="nav-skills-map">Карта навыков</a></li>
+                    <li><a href="thanks.html" data-i18n="nav-thank-you">Спасибо</a></li>
+                    <li><a href="about-site.html" data-i18n="nav-about-site">О сайте</a></li>
+                    <li><a href="sitemap.html" data-i18n="nav-sitemap">Карта сайта</a></li>
+                    <li><a href="settings.html" data-i18n="nav-settings">⚙️ Настройки</a></li>
+                </ul>
+            </li>
+            <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special" data-i18n="nav-special">Нету GitHub</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <!-- Hero услуг -->
@@ -163,14 +176,13 @@ if (window.top !== window.self) {
                 <a href="index.html" data-i18n="nav-home">Главная</a>
                 <a href="services.html" data-i18n="nav-services">Услуги</a>
                 <a href="about.html" data-i18n="nav-about">Обо мне</a>
-                <a href="index.html#projects" data-i18n="nav-projects">Проекты</a>
-                <a href="index.html#reviews" data-i18n="nav-reviews">Отзывы</a>
+                <a href="#projects" data-i18n="nav-projects">Проекты</a>
+                <a href="#reviews" data-i18n="nav-reviews">Отзывы</a>
             </div>
             <div class="footer-contacts">
                 <h4 data-i18n="footer-contacts-heading">Контакты</h4>
-                <a href="https://github.com/daardos" target="_blank" data-i18n="social-github">GitHub</a>
-                <a href="mailto:your@email.com" data-i18n="social-email">your@email.com</a>
-                <a href="https://t.me/yourhandle" target="_blank" data-i18n="social-telegram">Telegram</a>
+                <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
             </div>
             <div class="footer-legal">
                 <a href="privacy.html" data-i18n="footer-legal">Политика конфиденциальности</a>
@@ -286,17 +298,20 @@ document.querySelectorAll('a[target="_blank"]:not([rel*="noopener"])').forEach(l
 <script src="js/i18n.js"></script>
 <script src="js/settings-ui.js"></script>
 <script src="js/settings.js"></script>
- 
+<script src="js/responsive.js"></script>
+<script src="js/share.js"></script>
     
-<!-- Кнопка "Поделиться" -->
+<!-- Виджет "Поделиться" -->
 <div class="share-widget" id="share-widget">
-    <button class="share-toggle" id="share-toggle" title="Поделиться">📤</button>
+    <button class="share-toggle" id="share-toggle" aria-label="Поделиться">
+        📤
+    </button>
     <div class="share-menu" id="share-menu">
-        <a href="#" class="share-link" data-platform="twitter" target="_blank" rel="noopener">Twitter</a>
-        <a href="#" class="share-link" data-platform="facebook" target="_blank" rel="noopener">Facebook</a>
-        <a href="#" class="share-link" data-platform="telegram" target="_blank" rel="noopener">Telegram</a>
-        <a href="#" class="share-link" data-platform="linkedin" target="_blank" rel="noopener">LinkedIn</a>
-        <button class="share-native" id="share-native" style="display:none;">Поделиться...</button>
+        <button class="share-link" data-share="copy" data-i18n="share-copy-link">📋 Скопировать ссылку</button>
+        <button class="share-link" data-share="telegram" data-i18n="share-telegram">✈️ Telegram</button>
+        <button class="share-link" data-share="twitter" data-i18n="share-twitter">🐦 Twitter</button>
+        <button class="share-link" data-share="whatsapp" data-i18n="share-whatsapp">💬 WhatsApp</button>
+        <button class="share-native" id="share-native" data-i18n="share-native">🔗 Поделиться...</button>
     </div>
 </div>
 

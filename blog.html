@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Благодарность от Daardos.">
-    <title>Спасибо! | Daardos</title>
+    <meta name="description" content="Блог Daardos — скоро здесь будут статьи о веб-разработке.">
+    <title>Блог | Daardos</title>
 
-    <!-- Предзагрузка темы -->
+    <!-- Предзагрузка темы (без мерцания) -->
     <script>
         (function() {
             var settings = { theme: 'dark', font: 'inter', fontsize: 'normal', accent: '#00d1b2' };
@@ -19,20 +19,24 @@
                     if (saved.accent) settings.accent = saved.accent;
                 }
             } catch(e) {}
+
             var root = document.documentElement;
             if (settings.theme === 'light') {
                 document.body.classList.add('light-theme');
             } else if (settings.theme === 'auto' && window.matchMedia('(prefers-color-scheme: light)').matches) {
                 document.body.classList.add('light-theme');
             }
+
             var fonts = {
                 inter: "'Inter', system-ui, sans-serif",
                 roboto: "'Roboto', system-ui, sans-serif",
                 mono: "'Fira Code', monospace"
             };
             root.style.setProperty('--font-family', fonts[settings.font] || fonts.inter);
+
             var sizes = { small: '14px', normal: '16px', large: '18px' };
             root.style.setProperty('--base-font-size', sizes[settings.fontsize] || sizes.normal);
+
             root.style.setProperty('--accent', settings.accent);
         })();
     </script>
@@ -74,18 +78,30 @@
 </header>
 
     <main>
-        <section class="thank-you-hero">
-            <div class="thank-you-container">
-                <div class="thank-you-icon">💎</div>
-                <h1 data-i18n="thank-you-title">Спасибо, что заглянули!</h1>
-                <p class="thank-you-message" data-i18n="thank-you-message">
-                    Я ценю ваш интерес к моему портфолио. Надеюсь, вы нашли то, что искали. 
-                    Буду рад воплотить ваши идеи в жизнь.
-                </p>
-                <div class="thank-you-links">
-                    <a href="index.html#action" class="btn btn-primary" data-i18n="thank-you-contact-btn">Связаться со мной</a>
-                    <a href="index.html#projects" class="btn btn-outline-hero" data-i18n="thank-you-projects-btn">Смотреть проекты</a>
+        <section class="blog-coming-soon">
+            <div class="blog-icon">📝</div>
+            <h1 data-i18n="blog-title">Блог в разработке</h1>
+            <p data-i18n="blog-description">
+                Здесь скоро появятся статьи о веб-разработке, дизайне и моих проектах. 
+                Сейчас я активно пишу контент и готовлю интересные материалы.
+            </p>
+
+            <!-- Прогресс-бар -->
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span data-i18n="blog-progress-label">Прогресс наполнения</span>
+                    <span id="progress-percent">35%</span>
                 </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;"></div>
+                </div>
+            </div>
+
+            <p class="blog-note" data-i18n="blog-note">
+                Хотите быть в курсе новых статей? Подпишитесь на мой GitHub или напишите мне.
+            </p>
+            <div class="blog-buttons">
+                <a href="index.html" class="btn" data-i18n="blog-back-home">← На главную</a>
             </div>
         </section>
     </main>
@@ -118,12 +134,13 @@
         </div>
     </footer>
 
+    <!-- Скрипты -->
     <script src="js/security.js"></script>
     <script src="js/core.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/settings-ui.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/responsive.js"></script>
-    <script src="js/share.js"></script>
+    <script src="js/bonus-modal.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Благодарность от Daardos.">
-    <title>Спасибо! | Daardos</title>
+    <meta name="description" content="Roadmap будущих проектов и изменений на сайте Daardos.">
+    <title>Roadmap | Daardos</title>
 
     <!-- Предзагрузка темы -->
     <script>
@@ -74,17 +74,51 @@
 </header>
 
     <main>
-        <section class="thank-you-hero">
-            <div class="thank-you-container">
-                <div class="thank-you-icon">💎</div>
-                <h1 data-i18n="thank-you-title">Спасибо, что заглянули!</h1>
-                <p class="thank-you-message" data-i18n="thank-you-message">
-                    Я ценю ваш интерес к моему портфолио. Надеюсь, вы нашли то, что искали. 
-                    Буду рад воплотить ваши идеи в жизнь.
-                </p>
-                <div class="thank-you-links">
-                    <a href="index.html#action" class="btn btn-primary" data-i18n="thank-you-contact-btn">Связаться со мной</a>
-                    <a href="index.html#projects" class="btn btn-outline-hero" data-i18n="thank-you-projects-btn">Смотреть проекты</a>
+        <section class="roadmap-hero">
+            <div class="container">
+                <h1 data-i18n="roadmap-title">🚀 Roadmap</h1>
+                <p class="roadmap-subtitle" data-i18n="roadmap-subtitle">Что я планирую сделать, улучшить и запустить в ближайшее время</p>
+
+                <div class="roadmap-timeline">
+                    <!-- План 1 -->
+                    <div class="roadmap-item done">
+                        <div class="roadmap-marker">⚡</div>
+                        <div class="roadmap-card">
+                            <h3 data-i18n="roadmap-item1-title">Блог о веб-разработке</h3>
+                            <p data-i18n="roadmap-item1-desc">Статьи о Frontend, дизайне, инструментах. Планирую выпускать 1-2 статьи в месяц.</p>
+                            <span class="roadmap-status progress-label" data-i18n="roadmap-status-progress">🚧 В процессе</span>
+                        </div>
+                    </div>
+
+                    <!-- План 2 -->
+                    <div class="roadmap-item in-progress">
+                        <div class="roadmap-marker">✓</div>
+                        <div class="roadmap-card">
+                            <h3 data-i18n="roadmap-item2-title">Интерактивная карта навыков</h3>
+                            <p data-i18n="roadmap-item2-desc">Визуализация стека технологий с анимацией на Canvas.</p>
+                            <span class="roadmap-status done-label" data-i18n="roadmap-status-done">✅ Сделано</span>
+                        </div>
+                    </div>
+
+                    <!-- План 3 -->
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker">📅</div>
+                        <div class="roadmap-card">
+                            <h3 data-i18n="roadmap-item3-title">Личный кабинет клиента</h3>
+                            <p data-i18n="roadmap-item3-desc">Возможность отслеживать прогресс проекта и общаться напрямую.</p>
+                            <span class="roadmap-status planned-label" data-i18n="roadmap-status-planned">📋 Запланировано</span>
+                        </div>
+                    </div>
+
+                    <!-- План 4 -->
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker">💡</div>
+                        <div class="roadmap-card">
+                            <h3 data-i18n="roadmap-item4-title">Мобильное приложение-портфолио</h3>
+                            <p data-i18n="roadmap-item4-desc">Нативная версия портфолио для iOS и Android (React Native).</p>
+                            <span class="roadmap-status planned-label" data-i18n="roadmap-status-planned">📋 Запланировано</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -102,13 +136,15 @@
                 <a href="index.html" data-i18n="nav-home">Главная</a>
                 <a href="services.html" data-i18n="nav-services">Услуги</a>
                 <a href="about.html" data-i18n="nav-about">Обо мне</a>
-                <a href="#projects" data-i18n="nav-projects">Проекты</a>
-                <a href="#reviews" data-i18n="nav-reviews">Отзывы</a>
+                <a href="blog.html" data-i18n="nav-blog">Блог</a>
+                <a href="roadmap.html" data-i18n="nav-roadmap">Roadmap</a>
+                <a href="index.html#projects" data-i18n="nav-projects">Проекты</a>
             </div>
             <div class="footer-contacts">
                 <h4 data-i18n="footer-contacts-heading">Контакты</h4>
-                <a href="https://github.com/daardos" target="_blank">GitHub</a>
-                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+                <a href="https://github.com/daardos" target="_blank" data-i18n="social-github">GitHub</a>
+                <a href="mailto:your@email.com" data-i18n="social-email">your@email.com</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank" data-i18n="social-kwork">Kwork</a>
             </div>
             <div class="footer-legal">
                 <a href="privacy.html" data-i18n="footer-legal">Политика конфиденциальности</a>
@@ -118,12 +154,14 @@
         </div>
     </footer>
 
+    <!-- Скрипты -->
     <script src="js/security.js"></script>
     <script src="js/core.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/settings-ui.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/responsive.js"></script>
+    <script src="js/bonus-modal.js"></script>
     <script src="js/share.js"></script>
 </body>
 </html>

@@ -1,8 +1,9 @@
-// visit-stats.js — автономный счётчик посещений
+// visit-tracker.js — автономный счётчик посещений (с точным временем)
 (function() {
     const now = new Date();
     const nowTime = now.getTime();
-    const todayStr = now.toLocaleDateString();
+    // Формат: "21.05.2026, 14:35"
+    const visitTimeStr = now.toLocaleDateString() + ', ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     let data = {};
     try {
@@ -11,21 +12,22 @@
         data = {};
     }
 
-    // Первый визит
+    // Первый визит или обновление
     if (!data.firstVisit) {
-        data.firstVisit = todayStr;
+        data.firstVisit = visitTimeStr;
         data.visitCount = 1;
         data.totalTimeMs = 0;
     } else {
         data.visitCount = (data.visitCount || 1) + 1;
     }
 
-    data.lastVisit = todayStr;
+    data.lastVisit = visitTimeStr;      // теперь с точным временем
     data.lastVisitTime = nowTime;
     data.sessionStart = nowTime;
 
     localStorage.setItem('user-visit-stats', JSON.stringify(data));
 
+    // Функция отображения
     function updateDisplay() {
         try {
             const currentData = JSON.parse(localStorage.getItem('user-visit-stats')) || {};
@@ -47,6 +49,7 @@
     updateDisplay();
     setInterval(updateDisplay, 10000);
 
+    // Перед закрытием сохраняем время сессии
     window.addEventListener('beforeunload', () => {
         try {
             const currentData = JSON.parse(localStorage.getItem('user-visit-stats')) || {};

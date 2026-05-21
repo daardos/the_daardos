@@ -92,21 +92,34 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">DEV<span>FOLIO</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html" data-i18n="nav-home">Главная</a></li>
-                <li><a href="services.html" data-i18n="nav-services">Услуги</a></li>
-                <li><a href="about.html" data-i18n="nav-about">Обо мне</a></li>
-                <li><a href="index.html#projects" data-i18n="nav-projects">Проекты</a></li>
-                <li><a href="index.html#reviews" data-i18n="nav-reviews">Отзывы</a></li>
-                <li><a href="index.html#action" data-i18n="nav-contact">Контакты</a></li>
-                <li><a href="settings.html" data-i18n="nav-settings">⚙️</a></li>
-                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special" data-i18n="nav-special">Нету GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <div class="logo">DEV<span>FOLIO</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav-home">Главная</a></li>
+            <li><a href="services.html" data-i18n="nav-services">Услуги</a></li>
+            <li><a href="about.html" data-i18n="nav-about">Обо мне</a></li>
+            <li><a href="index.html#projects" data-i18n="nav-projects">Проекты</a></li>
+            <li><a href="index.html#action" data-i18n="nav-contact">Контакты</a></li>
+            <li class="nav-more">
+                <button class="nav-more-btn" aria-label="Ещё" data-i18n="nav-more">Ещё ▾</button>
+                <ul class="nav-dropdown">
+                    <li><a href="resume.html" data-i18n="nav-resume">Резюме</a></li>
+                    <li><a href="blog.html" data-i18n="nav-blog">Блог</a></li>
+                    <li><a href="technologies.html" data-i18n="nav-technologies">Технологии</a></li>
+                    <li><a href="faq.html" data-i18n="nav-faq">FAQ</a></li>
+                    <li><a href="roadmap.html" data-i18n="nav-roadmap">Roadmap</a></li>
+                    <li><a href="skills-map.html" data-i18n="nav-skills-map">Карта навыков</a></li>
+                    <li><a href="thanks.html" data-i18n="nav-thank-you">Спасибо</a></li>
+                    <li><a href="about-site.html" data-i18n="nav-about-site">О сайте</a></li>
+                    <li><a href="sitemap.html" data-i18n="nav-sitemap">Карта сайта</a></li>
+                    <li><a href="settings.html" data-i18n="nav-settings">⚙️ Настройки</a></li>
+                </ul>
+            </li>
+            <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special" data-i18n="nav-special">Нету GitHub</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main class="settings-container">
         <h1 data-i18n="settings-heading">Настройки</h1>
@@ -181,6 +194,35 @@
         </div>
     </div>
 </div>
+
+    <!-- ФУТЕР -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo">DEV<span>FOLIO</span></span>
+                <p data-i18n="footer-text">Создаю дизайн и код, который приносит продажи.</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer-nav-heading">Навигация</h4>
+                <a href="index.html" data-i18n="nav-home">Главная</a>
+                <a href="services.html" data-i18n="nav-services">Услуги</a>
+                <a href="about.html" data-i18n="nav-about">Обо мне</a>
+                <a href="#projects" data-i18n="nav-projects">Проекты</a>
+                <a href="#reviews" data-i18n="nav-reviews">Отзывы</a>
+            </div>
+            <div class="footer-contacts">
+                <h4 data-i18n="footer-contacts-heading">Контакты</h4>
+                <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+            </div>
+            <div class="footer-legal">
+                <a href="privacy.html" data-i18n="footer-legal">Политика конфиденциальности</a>
+                <p class="copyright" data-i18n="footer-copyright">© 2026 Daardos. Built with Speed & Style.</p>
+            </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" data-i18n="back-to-top">↑ Наверх</button>
+        </div>
+    </footer>
+
     <script src="settings.js"></script>
     <script>
         // Cookie Consent
@@ -214,6 +256,7 @@
 <script src="js/i18n.js"></script>
 <script src="js/settings-ui.js"></script>
 <script src="js/settings.js"></script>
- 
+<script src="js/responsive.js"></script>
+<script src="js/bonus-modal.js"></script>
 </body>
 </html>
