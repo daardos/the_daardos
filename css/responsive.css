@@ -1,20 +1,95 @@
 /* =========================================
-   RESPONSIVE.CSS — Полная адаптация под все телефоны
+   RESPONSIVE.CSS — Полная мобильная магия
    ========================================= */
 
-/* ---------- Общие правила для планшетов и ниже (<1024px) ---------- */
-@media (max-width: 1024px) {
-  .container {
-    padding: 80px 20px;
+/* ---------- 1. Базовый сброс для тач-устройств ---------- */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
-  h2 {
-    font-size: 2.2rem !important;
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Убираем все hover-эффекты */
+  .card:hover,
+  .btn:hover,
+  .workflow-step:hover,
+  .testimonial-card:hover,
+  .partner-card:hover,
+  .roadmap-card:hover,
+  .sitemap-card:hover,
+  .about-site-card:hover,
+  .faq-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: rgba(255,255,255,0.05) !important;
+  }
+
+  .card:hover img,
+  .card:active img {
+    scale: 1 !important;
+    filter: grayscale(20%) !important;
   }
 }
 
-/* ---------- Основные мобильные (<768px) ---------- */
+/* ---------- 2. Динамическая высота экрана (dvh) ---------- */
+.hero {
+  height: 100dvh; /* современный динамический viewport */
+  height: calc(var(--vh, 1vh) * 100); /* фолбэк */
+  min-height: 100dvh;
+}
+
+/* Для всех полноэкранных секций */
+.scroll-container > section,
+.fullscreen-section {
+  height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+/* ---------- 3. Scroll Snap на главной (секции) ---------- */
 @media (max-width: 768px) {
-  /* Общие */
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100dvh;
+  }
+
+  .scroll-container > section {
+    scroll-snap-align: start;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ---------- 4. Свайп-галерея для карточек проектов ---------- */
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 15px;
+    padding-bottom: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .grid .card {
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+  }
+}
+
+/* ---------- 5. Общие адаптивные правила ---------- */
+@media (max-width: 768px) {
+  /* Типографика */
   body {
     font-size: 15px;
   }
@@ -25,16 +100,10 @@
   h2 {
     font-size: 1.8rem !important;
   }
-  h2::after {
-    width: 40px;
-    height: 3px;
-    bottom: -6px;
-  }
+
+  /* Контейнеры */
   .container {
-    padding: 50px 16px;
-  }
-  .reveal {
-    transition: all 0.5s ease-out;
+    padding: 40px 16px;
   }
 
   /* Шапка */
@@ -44,30 +113,27 @@
   nav {
     flex-wrap: wrap;
     height: auto;
-    padding: 12px 16px;
+    padding: 10px 16px;
   }
   .logo {
     font-size: 1.3rem;
   }
   .nav-links {
-    gap: 10px;
+    gap: 8px;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 8px;
   }
   .nav-links a,
   .nav-more-btn {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     padding: 4px 6px;
   }
   .nav-special {
     padding: 4px 10px !important;
   }
 
-  /* Выпадающее меню на мобильных */
-  .nav-more {
-    position: static;
-  }
+  /* Выпадающее меню */
   .nav-dropdown {
     position: static;
     box-shadow: none;
@@ -81,15 +147,9 @@
   }
 
   /* Hero */
-  .hero {
-    background-attachment: scroll !important;
-    height: auto;
-    min-height: 100vh;
-    padding: 100px 16px 60px;
-  }
   .hero-container {
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     padding: 0;
   }
   .hero-left,
@@ -102,14 +162,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 16px;
-  }
-  .hero-advantages li {
-    transform: translateY(20px);
-    animation: slideUp 0.6s ease-out forwards;
-  }
-  @keyframes slideUp {
-    to { transform: translateY(0); opacity: 1; }
+    gap: 12px;
   }
   .hero-center {
     order: -1;
@@ -124,42 +177,33 @@
   .hero-buttons {
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .btn {
     width: 100%;
     max-width: 300px;
     text-align: center;
-    padding: 14px 24px;
+    padding: 12px 20px;
+    font-size: 1rem;
   }
   .hero-stats {
     text-align: center;
     margin-top: 16px;
   }
 
-  /* Карточки проектов */
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .card:hover {
-    transform: none !important;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important;
-  }
-  .card:hover img {
-    scale: 1 !important;
-    filter: grayscale(20%);
-  }
+  /* Карточки проектов (вне свайпера) */
   .card-body {
-    padding: 20px;
+    padding: 16px;
   }
   .card-links a {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    padding: 8px;
   }
 
   /* Отзывы */
   .testimonials-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   .testimonial-card {
     padding: 20px;
@@ -169,27 +213,28 @@
   .workflow {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
   }
   .workflow-step {
     max-width: 100%;
     min-width: auto;
   }
 
-  /* Услуги (если есть сетка) */
+  /* Страница услуг */
   .services-grid {
     grid-template-columns: 1fr;
   }
   .service-card {
-    padding: 30px 20px;
+    padding: 20px;
   }
 
   /* CTA + форма */
   .cta-form-section {
-    padding: 60px 16px;
+    padding: 40px 16px;
   }
   .cta-form-container {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
   }
   .cta-text {
     text-align: center;
@@ -201,14 +246,14 @@
     justify-content: center;
   }
   .cta-form {
-    padding: 24px 20px;
+    padding: 20px;
   }
 
   /* Футер */
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 30px;
+    gap: 24px;
   }
   .back-to-top {
     justify-self: center;
@@ -217,11 +262,12 @@
 
   /* Страница "Обо мне" */
   .about-photo {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
   }
   .stat-item {
-    min-width: 120px;
+    min-width: 100px;
+    padding: 16px;
   }
   .skills-bars {
     margin: 20px auto;
@@ -234,15 +280,17 @@
   }
   .timeline-item::before {
     left: -26px;
+    width: 8px;
+    height: 8px;
   }
 
   /* Страница "Технологии" */
   .tech-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 10px;
   }
   .tech-card {
-    padding: 20px 15px;
+    padding: 16px;
   }
   .tech-icon {
     font-size: 2rem;
@@ -258,7 +306,7 @@
   .partner-card {
     flex-direction: column;
     text-align: center;
-    padding: 24px;
+    padding: 20px;
   }
   .partner-info {
     text-align: center;
@@ -278,7 +326,52 @@
     gap: 10px;
   }
 
-  /* Cookie-уведомление */
+  /* FAQ */
+  .faq-question {
+    font-size: 1rem;
+    padding: 16px 0;
+  }
+
+  /* Roadmap */
+  .roadmap-timeline {
+    padding-left: 30px;
+  }
+  .roadmap-marker {
+    left: -38px;
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+  .roadmap-card {
+    padding: 16px;
+  }
+
+  /* Карта сайта */
+  .sitemap-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .sitemap-card {
+    padding: 16px;
+  }
+
+  /* О сайте */
+  .about-site-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Настройки */
+  .settings-container {
+    padding: 20px;
+    margin: 80px auto;
+  }
+  .option-row button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* Cookie */
   .cookie-container {
     flex-direction: column;
     text-align: center;
@@ -301,21 +394,13 @@
   }
 }
 
-/* ---------- Очень маленькие экраны (<480px) ---------- */
+/* ---------- 6. Очень маленькие экраны (<480px) ---------- */
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.9rem !important;
+    font-size: 1.8rem !important;
   }
   h2 {
-    font-size: 1.6rem !important;
-  }
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .nav-links a,
-  .nav-more-btn {
-    font-size: 0.8rem;
+    font-size: 1.5rem !important;
   }
   .hero-title {
     font-size: 2rem !important;
@@ -323,10 +408,10 @@
   .hero-sub {
     font-size: 0.9rem;
   }
-  .card-body {
-    padding: 16px;
-  }
   .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  .sitemap-grid {
     grid-template-columns: 1fr;
   }
   .partner-avatar-small {
@@ -334,32 +419,22 @@
     height: 40px;
   }
   .btn-partner {
-    padding: 6px 14px;
-    font-size: 0.8rem;
-  }
-  .progress-label {
+    padding: 6px 12px;
     font-size: 0.8rem;
   }
 }
 
-/* Отключаем ховер-эффекты на тачскринах */
-@media (hover: none) {
-  .card:hover {
-    transform: none !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
-    border-color: rgba(255,255,255,0.05);
-  }
-  .card:hover img {
-    scale: 1;
-    filter: grayscale(20%);
-  }
-  .btn:hover {
-    transform: none;
-  }
-  .workflow-step:hover {
-    transform: none;
-  }
-  .testimonial-card:hover {
-    border-color: rgba(255,255,255,0.05);
-  }
+/* ---------- 7. Улучшение скролла (невидимые полосы) ---------- */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
 }
