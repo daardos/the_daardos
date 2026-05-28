@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /css/
-Disallow: /js/
-Disallow: /settings.html
-Sitemap: https://daardos.github.io/DevFolio/sitemap.xml
