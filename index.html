@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daardos — Новый сайт уже здесь</title>
+    <style>
+        :root {
+            --accent: #00d1b2;
+            --text: #e0e6f0;
+            --muted: #8892a4;
+            --bg: #0b0e14;
+            --card-bg: #141820;
+            --border: #2a2f3a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        canvas#particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 700px;
+            width: 100%;
+        }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), #7b5cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 10px rgba(0,209,178,0.3)); }
+            100% { filter: drop-shadow(0 0 25px rgba(0,209,178,0.7)); }
+        }
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .reason-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .reason-card:hover { transform: translateY(-5px); }
+        .reason-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .reason-title { font-weight: 600; margin-bottom: 0.5rem; }
+        .reason-text { color: var(--muted); font-size: 0.95rem; }
+
+        /* Кнопка-параллелограмм со сканирующим эффектом */
+        .skew-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1.2rem 3rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000;
+            background: linear-gradient(135deg, var(--accent), #7b5cff);
+            border: none;
+            position: relative;
+            transform: skewX(-12deg);
+            transition: all 0.3s;
+            overflow: hidden;
+            isolation: isolate;
+            animation: pulseSkew 2s infinite;
+        }
+        .skew-btn > span {
+            display: block;
+            transform: skewX(12deg);
+        }
+        /* Сканирующая линия */
+        .skew-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(12deg);
+            z-index: 2;
+            animation: scan 3s infinite;
+        }
+        @keyframes scan {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+        @keyframes pulseSkew {
+            0% { transform: skewX(-12deg) scale(1); box-shadow: 0 0 30px rgba(0,209,178,0.5); }
+            50% { transform: skewX(-12deg) scale(1.05); box-shadow: 0 0 50px rgba(0,209,178,0.8); }
+            100% { transform: skewX(-12deg) scale(1); box-shadow: 0 0 30px rgba(0,209,178,0.5); }
+        }
+        .skew-btn:hover {
+            box-shadow: 0 0 60px rgba(0,209,178,0.9);
+        }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2rem; }
+            .skew-btn { font-size: 1.2rem; padding: 1rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="container">
+        <h1 class="hero-title">Мой сайт переехал на новый движок</h1>
+        <p class="subtitle">Теперь это динамическое портфолио с живыми обновлениями и админкой</p>
+
+        <div class="reasons">
+            <div class="reason-card">
+                <div class="reason-icon">⚡</div>
+                <div class="reason-title">Мгновенные обновления</div>
+                <div class="reason-text">Добавляю проекты, отзывы и контент без правки кода.</div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">⚙️</div>
+                <div class="reason-title">Удобная админка</div>
+                <div class="reason-text">Управляю сайтом через панель, а не через HTML-файлы.</div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">🔒</div>
+                <div class="reason-title">Защита и модерация</div>
+                <div class="reason-text">Защита от взлома, модерация отзывов клиентов.</div>
+            </div>
+        </div>
+
+        <a href="https://daardos-devfolio.hf.space/" class="skew-btn">
+            <span>🚀 Перейти на новый сайт</span>
+        </a>
+    </div>
+
+    <script>
+        // --- Анимированные частицы (вау-эффект) ---
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const particles = [];
+        for (let i = 0; i < 80; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: Math.random() * 1.5 - 0.75,
+                speedY: Math.random() * 1.5 - 0.75
+            });
+        }
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (const p of particles) {
+                p.x += p.speedX;
+                p.y += p.speedY;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.x < 0) p.x = canvas.width;
+                if (p.y > canvas.height) p.y = 0;
+                if (p.y < 0) p.y = canvas.height;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = '#00d1b2';
+                ctx.shadowColor = '#00d1b2';
+                ctx.shadowBlur = 10;
+                ctx.fill();
+            }
+            ctx.shadowBlur = 0;
+            requestAnimationFrame(draw);
+        }
+        draw();
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
