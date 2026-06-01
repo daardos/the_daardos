@@ -479,26 +479,23 @@
     <!-- ФУТЕР -->
     <footer class="site-footer">
         <div class="footer-content">
-            <div class="footer-logo">
-                <span class="logo">DEV<span>FOLIO</span></span>
-                <p>Создаю дизайн и код, который приносит продажи.</p>
-            </div>
+            <div class="footer-logo"><span class="logo">{{ settings.site_name | safe }}</span><p>{{ settings.footer_text }}</p></div>
             <div class="footer-links">
                 <h4>Навигация</h4>
-                <a href="/">Главная</a>
-                <a href="/services">Услуги</a>
-                <a href="/about">Обо мне</a>
-                <a href="/#projects">Проекты</a>
-                <a href="/#reviews">Отзывы</a>
+                <a href="*">Главная</a>
+                <a href="services">Услуги</a>
+                <a href="about">Обо мне</a>
+                <a href="#projects">Проекты</a>
+                <a href="#reviews">Отзывы</a>
             </div>
             <div class="footer-contacts">
                 <h4>Контакты</h4>
-                <a href="https://github.com/daardos" target="_blank">GitHub</a>
-                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+                <a href="{{ settings.github_url }}" target="_blank">GitHub</a>
+                <a href="{{ settings.kwork_url }}" target="_blank">Kwork</a>
             </div>
             <div class="footer-legal">
-                <a href="/privacy">Политика конфиденциальности</a>
-                <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+                <a href="privacy">Политика конфиденциальности</a>
+                <p class="copyright">{{ settings.copyright | safe }}</p>
             </div>
             <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
         </div>
