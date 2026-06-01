@@ -1,0 +1,9 @@
+/* Спасибо */
+@media (max-width: 768px) {
+    .thank-you-container {
+        padding: 30px 15px;
+    }
+    .thank-you-icon {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,94 @@
+/* =========================================
+   BLOG.CSS — Заглушка «Блог в разработке»
+   ========================================= */
+
+.blog-coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.blog-coming-soon h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.blog-coming-soon p {
+    color: var(--muted);
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s 0.2s ease-out both;
+}
+
+/* Прогресс-бар */
+.progress-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s 0.4s ease-out both;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.progress-bar {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #fff);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.blog-note {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 25px;
+    animation: fadeInUp 0.8s 0.6s ease-out both;
+}
+
+.blog-buttons {
+    animation: fadeInUp 0.8s 0.8s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}

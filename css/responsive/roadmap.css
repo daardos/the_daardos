@@ -1,0 +1,12 @@
+/* Roadmap */
+@media (max-width: 768px) {
+    .roadmap-item {
+        padding-left: 30px;
+    }
+    .roadmap-marker {
+        left: 0;
+    }
+    .roadmap-card {
+        padding: 15px;
+    }
+}

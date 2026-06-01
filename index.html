@@ -1,202 +1,637 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<script>
+// Защита от кликджекинга: если страница в iframe — выйти из него
+if (window.top !== window.self) {
+    window.top.location = window.self.location;
+}
+</script>
+<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://formspree.io;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data:;
+    connect-src 'self' https://formspree.io;
+    base-uri 'self';
+    form-action 'self' https://formspree.io;
+">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daardos — Новый сайт уже здесь</title>
-    <style>
-        :root {
-            --accent: #00d1b2;
-            --text: #e0e6f0;
-            --muted: #8892a4;
-            --bg: #0b0e14;
-            --card-bg: #141820;
-            --border: #2a2f3a;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-        canvas#particles {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-        }
-        .container {
-            position: relative;
-            z-index: 1;
-            padding: 2rem;
-            max-width: 700px;
-            width: 100%;
-        }
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent), #7b5cff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-            0% { filter: drop-shadow(0 0 10px rgba(0,209,178,0.3)); }
-            100% { filter: drop-shadow(0 0 25px rgba(0,209,178,0.7)); }
-        }
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .reasons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .reason-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: transform 0.3s;
-        }
-        .reason-card:hover { transform: translateY(-5px); }
-        .reason-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .reason-title { font-weight: 600; margin-bottom: 0.5rem; }
-        .reason-text { color: var(--muted); font-size: 0.95rem; }
+    <meta name="description" content="Портфолио Senior Frontend разработчика и UI/UX дизайнера. Создаю современные веб-интерфейсы.">
+    <title>Daardos | DevFolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;500;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
 
-        /* Кнопка-параллелограмм со сканирующим эффектом */
-        .skew-btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1.2rem 3rem;
-            font-size: 1.6rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: #000;
-            background: linear-gradient(135deg, var(--accent), #7b5cff);
-            border: none;
-            position: relative;
-            transform: skewX(-12deg);
-            transition: all 0.3s;
-            overflow: hidden;
-            isolation: isolate;
-            animation: pulseSkew 2s infinite;
+    <meta name="description" content="Портфолио Senior Frontend разработчика Daardos. Создаю современные веб‑интерфейсы, лендинги, верстку из Figma. Проекты, услуги, контакты.">
+    <meta name="keywords" content="frontend разработчик, портфолио, Daardos, верстка, HTML, CSS, JavaScript, React, Next.js, Figma, веб‑дизайн, создание сайтов">
+    <meta name="author" content="Daardos">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://daardos.github.io/DevFolio/index.html">
+
+    <!-- Open Graph (для соцсетей) -->
+    <meta property="og:title" content="Daardos — Senior Frontend Developer & UI/UX Designer">
+    <meta property="og:description" content="Создаю современные веб‑интерфейсы, которые приносят продажи. Смотрите мои проекты и услуги.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://daardos.github.io/DevFolio/index.html">
+    <meta property="og:image" content="https://daardos.github.io/DevFolio/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Daardos Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daardos — Senior Frontend Developer & UI/UX Designer">
+    <meta name="twitter:description" content="Создаю современные веб‑интерфейсы. Проекты, услуги, контакты.">
+    <meta name="twitter:image" content="https://daardos.github.io/DevFolio/preview.jpg">
+
+    <!-- Мобильная оптимизация -->
+    <meta name="theme-color" content="#0b0e14">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Daardos">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Дополнительно: указание языка -->
+    <meta http-equiv="Content-Language" content="ru">
+<script>
+    (function() {
+        var settings = { theme: 'dark', font: 'inter', fontsize: 'normal', accent: '#00d1b2' };
+        try {
+            var saved = JSON.parse(localStorage.getItem('site-settings'));
+            if (saved) {
+                if (saved.theme) settings.theme = saved.theme;
+                if (saved.font) settings.font = saved.font;
+                if (saved.fontsize) settings.fontsize = saved.fontsize;
+                if (saved.accent) settings.accent = saved.accent;
+            }
+        } catch(e) {}
+        
+        var root = document.documentElement;
+        
+        // Тема
+        if (settings.theme === 'light') {
+            document.body.classList.add('light-theme');
+        } else if (settings.theme === 'auto' && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.body.classList.add('light-theme');
         }
-        .skew-btn > span {
-            display: block;
-            transform: skewX(12deg);
-        }
-        /* Сканирующая линия */
-        .skew-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -150%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(12deg);
-            z-index: 2;
-            animation: scan 3s infinite;
-        }
-        @keyframes scan {
-            0% { left: -150%; }
-            50% { left: 150%; }
-            100% { left: 150%; }
-        }
-        @keyframes pulseSkew {
-            0% { transform: skewX(-12deg) scale(1); box-shadow: 0 0 30px rgba(0,209,178,0.5); }
-            50% { transform: skewX(-12deg) scale(1.05); box-shadow: 0 0 50px rgba(0,209,178,0.8); }
-            100% { transform: skewX(-12deg) scale(1); box-shadow: 0 0 30px rgba(0,209,178,0.5); }
-        }
-        .skew-btn:hover {
-            box-shadow: 0 0 60px rgba(0,209,178,0.9);
-        }
-        @media (max-width: 600px) {
-            .hero-title { font-size: 2rem; }
-            .skew-btn { font-size: 1.2rem; padding: 1rem 2rem; }
-        }
-    </style>
+        
+        // Шрифт
+        var fonts = {
+            inter: "'Inter', system-ui, sans-serif",
+            roboto: "'Roboto', system-ui, sans-serif",
+            mono: "'Fira Code', monospace"
+        };
+        root.style.setProperty('--font-family', fonts[settings.font] || fonts.inter);
+        
+        // Размер шрифта
+        var sizes = { small: '14px', normal: '16px', large: '18px' };
+        root.style.setProperty('--base-font-size', sizes[settings.fontsize] || sizes.normal);
+        
+        // Акцентный цвет
+        root.style.setProperty('--accent', settings.accent);
+    })();
+</script>
 </head>
 <body>
-    <canvas id="particles"></canvas>
-    <div class="container">
-        <h1 class="hero-title">Мой сайт переехал на новый движок</h1>
-        <p class="subtitle">Теперь это динамическое портфолио с живыми обновлениями и админкой</p>
+    <!-- ШАПКА -->
+<header>
+    <nav>
+        <div class="logo">DEV<span>FOLIO</span></div>
+        <ul class="nav-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/services">Услуги</a></li>
+            <li><a href="/about">Обо мне</a></li>
+            <li><a href="/#projects">Проекты</a></li>
+            <li><a href="/#action">Контакты</a></li>
+            <li class="nav-more">
+                <button class="nav-more-btn" aria-label="Ещё">Ещё ▾</button>
+                <ul class="nav-dropdown">
+                    <li><a href="/resume">Резюме</a></li>
+                    <li><a href="/blog">Блог</a></li>
+                    <li><a href="/technologies">Технологии</a></li>
+                    <li><a href="/partner">Партнёрство</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/roadmap">Roadmap</a></li>
+                    <li><a href="/skills-map">Карта навыков</a></li>
+                    <li><a href="/about-site">О сайте</a></li>
+                    <li><a href="/sitemap">Карта сайта</a></li>
+                    <li><a href="/settings">⚙️ Настройки</a></li>
+                </ul>
+            </li>
+            <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special">Нету GitHub</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <div class="reasons">
-            <div class="reason-card">
-                <div class="reason-icon">⚡</div>
-                <div class="reason-title">Мгновенные обновления</div>
-                <div class="reason-text">Добавляю проекты, отзывы и контент без правки кода.</div>
+    <main>
+        <!-- Hero -->
+<section id="home" class="hero hero-enhanced">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-bg-particles" id="hero-particles"></div>
+
+    <div class="hero-container">
+        <div class="hero-left">
+            <ul class="hero-advantages">
+                
+                <li>⚡ Индивидуальный подход</li>
+                
+                <li>🎯 Оформлю заказ на Kwork</li>
+                
+                <li>💬 Ответ за 24 часа</li>
+                
+                <li>🧩 Чистый код без шаблонов</li>
+                
+                <li>🚀 Готовый проект за 3 дня</li>
+                
+            </ul>
+            <div class="hero-stats" id="user-stats">
+                <p>👋 Заходов: <span id="visit-count">1</span></p>
+                <p>🕒 Последний визит: <span id="last-visit">сегодня</span></p>
+                <p>⏱️ Время на сайте: <span id="time-spent">0 мин</span></p>
             </div>
-            <div class="reason-card">
-                <div class="reason-icon">⚙️</div>
-                <div class="reason-title">Удобная админка</div>
-                <div class="reason-text">Управляю сайтом через панель, а не через HTML-файлы.</div>
-            </div>
-            <div class="reason-card">
-                <div class="reason-icon">🔒</div>
-                <div class="reason-title">Защита и модерация</div>
-                <div class="reason-text">Защита от взлома, модерация отзывов клиентов.</div>
+        </div>
+        <div class="hero-center">
+            <p class="hero-greeting">Привет, я</p>
+            <h1 class="hero-title">Daardos</h1>
+            <p class="hero-sub">Создаю современные веб‑интерфейсы, которые приносят продажи</p>
+            <div class="hero-buttons">
+                <a href="#action" class="btn btn-outline-hero">Обсудить проект</a>
+                <a href="#projects" class="btn btn-outline-hero">Смотреть работы</a>
             </div>
         </div>
 
-        <a href="https://daardos-devfolio.hf.space/" class="skew-btn">
-            <span>🚀 Перейти на новый сайт</span>
-        </a>
+        <div class="hero-right">
+            <div class="hero-visual">
+                <div class="code-snippet" id="code-snippet">
+                    <div class="code-header">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="code-body">
+                        <pre><code>const build = () => {
+  return <span class="code-string">'success'</span>;
+};</code></pre>
+                        <div class="code-hidden" id="code-hidden">
+                            <pre><code>// Дополнительно
+<span class="code-string">Kwork:</span> <span style="color: aliceblue;">daardos</span>
+<span class="code-string">Partner:</span> <span style="color: aliceblue;">Ktehephn</span>
+<span class="code-string">Projects:</span> 3+ years
+<span class="code-string">Status:</span> Open for work</code></pre>
+                        </div>
+                    </div>
+                    <span class="cursor-blink" id="cursor-blink">_</span>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="scroll-indicator"></div>
+</section>
 
-    <script>
-        // --- Анимированные частицы (вау-эффект) ---
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const particles = [];
-        for (let i = 0; i < 80; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 3 + 1,
-                speedX: Math.random() * 1.5 - 0.75,
-                speedY: Math.random() * 1.5 - 0.75
+        <!-- Обо мне -->
+        <section id="about" class="container reveal">
+            <h2>Обо мне</h2>
+            <p style="max-width: 600px; font-size: 1.1rem; color: var(--muted); margin-bottom: 30px;">
+                Я специализируюсь на создании высокопроизводительных интерфейсов. Мой код чист, как слеза, а дизайн продуман до последнего пикселя.
+            </p>
+            <div class="skills">
+                
+                <span class="tag">HTML5</span>
+                
+                <span class="tag">JavaScript ES6+</span>
+                
+                <span class="tag">React &amp; Next.js</span>
+                
+                <span class="tag">TypeScript</span>
+                
+                <span class="tag">CSS Grid/Flexbox/Canvas</span>
+                
+                <span class="tag">Figma</span>
+                
+                <span class="tag">Node.js</span>
+                
+                <a href="/about" class="for_me">Узнать больше</a>
+            </div>
+        </section>
+
+        <!-- Проекты -->
+        <section id="projects" class="container reveal">
+            <h2>Мои проекты</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="game">Игры</button>
+                <button class="filter-btn" data-filter="design">Дизайн</button>
+                <button class="filter-btn" data-filter="app">Приложения</button>
+            </div>
+            <div class="grid">
+                
+                <article class="card" data-category="game" data-url="https://daardos.github.io/Neon-Bird/">
+                    <img src="avatar/bird.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>Neon bird</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Хардкорная игра на чистом JS с уникальной физикой.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/Neon-Bird/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="app" data-url="https://daardos.github.io/DevOS-Hub/">
+                    <img src="avatar/devs.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>DevOS Hub</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Среда разработки в браузере для продуктивной работы.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/DevOS-Hub/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="app" data-url="https://daardos.github.io/CyberType-Neon-Ultimate/">
+                    <img src="avatar/cubertype.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>CyberType Neon</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Тренажер слепой печати с киберпанк-эстетикой.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/CyberType-Neon-Ultimate/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="app" data-url="https://daardos.github.io/prompt-library/">
+                    <img src="avatar/promt.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>Prompt Library</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">База промптов для AI с удобным копированием.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/prompt-library/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="design" data-url="https://daardos.github.io/neon-clock/">
+                    <img src="avatar/matrix.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>Matrix Clock</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Время в потоке цифрового дождя на Canvas.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/neon-clock/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="design" data-url="https://daardos.github.io/neon-morphing-js">
+                    <img src="avatar/chas.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>Neon Morphing</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Интерактивная физика и морфинг частиц.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/neon-morphing-js" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="game" data-url="https://daardos.github.io/snake/">
+                    <img src="avatar/sance.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>Cyber Snake</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Классика змейки в новом неоновом оформлении.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/snake/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="game" data-url="https://daardos.github.io/Cyber-Pandemic/">
+                    <img src="avatar/pandemic.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>Cyber Pandemic</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Симулятор вирусного заражения на JS.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/Cyber-Pandemic/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="design" data-url="https://daardos.github.io/PHYSICS/">
+                    <img src="avatar/free.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>PHYSICS</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Визуализация законов физики в реальном времени.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/PHYSICS/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="design" data-url="https://daardos.github.io/3D-cart/">
+                    <img src="avatar/carts.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>3D Cart</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Интерактивные 3D карты для визуализации данных.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/3D-cart/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card" data-category="design" data-url="https://daardos.github.io/JS/">
+                    <img src="avatar/JS.png" alt="" loading="lazy">
+                    <div class="card-body">
+                        <h3>JS Mastery</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 10px;">Коллекция сложных кейсов и эффектов на чистом JavaScript.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                            <a href="https://daardos.github.io/JS/" target="_blank">Live View →</a>
+                        </div>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section id="reviews" class="container reveal">
+            <h2>Отзывы клиентов</h2>
+            <div class="testimonials-grid">
+                
+                <div class="testimonial-card">
+                    <p class="quote">"Daardos сделал невероятно быстрый лендинг! Конверсия выросла на 40% по сравнению со старым сайтом. Очень рад сотрудничеству."</p>
+                    <p class="author">Алексей С.</p>
+                    <p class="role">CEO TechStartup</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="quote">"Очень круто верстает. Все пиксель в пиксель, как в Figma. Проект сдал даже раньше дедлайна, буду советовать коллегам."</p>
+                    <p class="author">Мария К.</p>
+                    <p class="role">Дизайнер интерфейсов</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="quote">"Никогда не видел такой чистой анимации на Canvas. Настоящий профи, который любит сложные задачи. Сделал для нас браузерную игру за 2 недели."</p>
+                    <p class="author">Дмитрий В.</p>
+                    <p class="role">Основатель GameDev студии</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- CTA + форма -->
+        <section id="action" class="cta-form-section reveal">
+            <div class="cta-form-container">
+                <div class="cta-text">
+                    <h2>Готовы обсудить ваш проект?</h2>
+                    <p>Напишите мне сейчас и получите бесплатный аудит задачи + персональные рекомендации в течение 24 часов</p>
+                    <div class="socials-inline">
+                        <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/xpqklalq" method="POST" id="contact-form" class="cta-form">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="email" name="email" placeholder="Email для связи" required>
+                    <textarea name="message" placeholder="Опишите задачу или задайте вопрос" rows="4" required></textarea>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="partner-block">
+            <div class="partner-block-inner">
+                <div class="partner-avatar-small">
+                    <img src="#" alt="Ktehephn" loading="lazy">
+                </div>
+                <div class="partner-info">
+                    <span class="partner-label">Партнёр</span>
+                    <span class="partner-name">Ktehephn</span>
+                    <p class="partner-desc">Создаём современные интерфейсы вместе</p>
+                </div>
+                <a href="https://ktehepknh.github.io/GamerFan/" target="_blank" class="btn btn-partner">
+                    Сайт партнёра →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo">DEV<span>FOLIO</span></span>
+                <p>Создаю дизайн и код, который приносит продажи.</p>
+            </div>
+        <div class="footer-links">
+            <h4>Навигация</h4>
+            <a href="/">Главная</a>
+            <a href="/services">Услуги</a>
+            <a href="/about">Обо мне</a>
+            <a href="/#projects">Проекты</a>
+            <a href="/#reviews">Отзывы</a>
+        </div>
+        <div class="footer-contacts">
+            <h4>Контакты</h4>
+            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+            <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+        </div>
+        <div class="footer-legal">
+            <a href="/privacy">Политика конфиденциальности</a>
+            <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+        </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
+        </div>
+    </footer>
+
+<script>
+    // Безопасный DOMContentLoaded для всех страниц
+    document.addEventListener('DOMContentLoaded', function() {
+        // Плавный скролл
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "") return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Форма обратной связи (только если есть)
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerText = 'Отправка...';
+                btn.disabled = true;
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        window.location.href = '/thanks';
+                    } else {
+                        btn.innerText = 'Ошибка! Попробуйте снова.';
+                        btn.style.background = '#dc3545';
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.style.background = '';
+                            btn.disabled = false;
+                        }, 3000);
+                    }
+                } catch (error) {
+                    btn.innerText = 'Ошибка! Попробуйте снова.';
+                    btn.style.background = '#dc3545';
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                }
             });
         }
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (const p of particles) {
-                p.x += p.speedX;
-                p.y += p.speedY;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.x < 0) p.x = canvas.width;
-                if (p.y > canvas.height) p.y = 0;
-                if (p.y < 0) p.y = canvas.height;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = '#00d1b2';
-                ctx.shadowColor = '#00d1b2';
-                ctx.shadowBlur = 10;
-                ctx.fill();
+
+        // Cookie Consent
+        const consent = document.getElementById('cookie-consent');
+        const acceptBtn = document.getElementById('cookie-accept');
+        if (consent && acceptBtn) {
+            if (localStorage.getItem('cookie-accepted') !== 'true') {
+                setTimeout(() => { consent.classList.add('show'); }, 500);
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie-accepted', 'true');
+                    consent.classList.remove('show');
+                    setTimeout(() => { consent.style.display = 'none'; }, 500);
+                });
             }
-            ctx.shadowBlur = 0;
-            requestAnimationFrame(draw);
         }
-        draw();
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+
+        // Анимации reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Счётчики и шкалы (если есть на странице)
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stat-number') && !entry.target.classList.contains('counted')) {
+                        const target = entry.target;
+                        const countTo = parseInt(target.getAttribute('data-count'));
+                        let current = 0;
+                        const duration = 1500;
+                        const step = Math.ceil(countTo / (duration / 30));
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= countTo) {
+                                target.textContent = countTo;
+                                clearInterval(timer);
+                            } else {
+                                target.textContent = current;
+                            }
+                        }, 30);
+                        target.classList.add('counted');
+                    }
+                    if (entry.target.classList.contains('skill-bar-fill') && !entry.target.classList.contains('animated')) {
+                        entry.target.style.width = entry.target.getAttribute('data-width') + '%';
+                        entry.target.classList.add('animated');
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-number, .skill-bar-fill').forEach(el => skillObserver.observe(el));
+
+        // Динамический фон
+        window.addEventListener('mousemove', e => {
+            document.body.style.setProperty('--x', e.clientX + 'px');
+            document.body.style.setProperty('--y', e.clientY + 'px');
         });
-    </script>
+
+        // Автодобавление rel="noopener"
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            if (link.hostname !== window.location.hostname) {
+                const rel = link.getAttribute('rel') || '';
+                if (!rel.includes('noopener')) {
+                    link.setAttribute('rel', (rel + ' noopener noreferrer').trim());
+                }
+            }
+        });
+    });
+
+        // Фильтрация проектов (работает и с динамическими карточками)
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Убираем активный класс у всех кнопок
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hide');
+                        card.style.display = ''; // на случай, если hide скрывает через display
+                    } else {
+                        card.classList.add('hide');
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
+<!-- Виджет "Поделиться" -->
+<div class="share-widget" id="share-widget">
+    <button class="share-toggle" id="share-toggle" aria-label="Поделиться">
+        📤
+    </button>
+    <div class="share-menu" id="share-menu">
+        <button class="share-link" data-share="copy" data-i18n="share-copy-link">📋 Скопировать ссылку</button>
+        <button class="share-link" data-share="telegram" data-i18n="share-telegram">✈️ Telegram</button>
+        <button class="share-link" data-share="twitter" data-i18n="share-twitter">🐦 Twitter</button>
+        <button class="share-link" data-share="whatsapp" data-i18n="share-whatsapp">💬 WhatsApp</button>
+        <button class="share-native" id="share-native" data-i18n="share-native">🔗 Поделиться...</button>
+    </div>
+</div>
+
+<script src="js/responsive.js"></script>
+<script src="js/security.js"></script>
+<script src="js/core.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/settings-ui.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/bonus-modal.js"></script>
+<script src="js/share.js"></script>
+<script src="js/visit-tracker.js"></script>
+
 </body>
 </html>

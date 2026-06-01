@@ -1,0 +1,12 @@
+/* Партнёр */
+@media (max-width: 768px) {
+    .partner-hero {
+        padding: 30px 15px;
+    }
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-dialog {
+        padding: 20px;
+    }
+}
