@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Партнёрство | Daardos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Дополнительные стили для страницы партнёра */
+        .partner-hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        .partner-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        .partner-hero .partner-desc {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        .partner-hero .btn {
+            padding: 12px 28px;
+            font-size: 1rem;
+        }
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 20px 0;
+        }
+        .work-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+        .work-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .work-card .work-info {
+            padding: 20px;
+        }
+        .work-info h3 {
+            margin: 0 0 8px;
+            font-size: 1.3rem;
+        }
+        .work-info p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-dialog {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .modal-close:hover { color: var(--accent); }
+        .modal-dialog img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .modal-dialog h2 {
+            margin: 0 0 10px;
+            font-size: 1.8rem;
+        }
+        .modal-dialog p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+        .modal-dialog .project-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: #000;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- ШАПКА -->
+    <header>
+        <nav>
+            <div class="logo">DEV<span>FOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/services">Услуги</a></li>
+                <li><a href="/about">Обо мне</a></li>
+                <li><a href="/#projects">Проекты</a></li>
+                <li><a href="/#action">Контакты</a></li>
+                <li class="nav-more">
+                    <button class="nav-more-btn" aria-label="Ещё">Ещё ▾</button>
+                    <ul class="nav-dropdown">
+                        <li><a href="/resume">Резюме</a></li>
+                        <li><a href="/blog">Блог</a></li>
+                        <li><a href="/technologies">Технологии</a></li>
+                        <li><a href="/partner">Партнёрство</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/roadmap">Roadmap</a></li>
+                        <li><a href="/skills-map">Карта навыков</a></li>
+                        <li><a href="/about-site">О сайте</a></li>
+                        <li><a href="/sitemap">Карта сайта</a></li>
+                        <li><a href="/settings">⚙️ Настройки</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special">Нету GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="partner-section container">
+            <div class="partner-hero">
+                <h1>Ktehephn</h1>
+                <p class="partner-desc">Создаём современные интерфейсы вместе</p>
+                <a href="https://ktehepknh.github.io/GamerFan/" target="_blank" class="btn btn-primary">Перейти на сайт партнёра →</a>
+            </div>
+
+            
+            <h2 style="margin-bottom: 20px;">Работы партнёра</h2>
+            <div class="works-grid">
+                
+                <div class="work-card" data-title="Проект 1" data-desc="Описание работы партнёра" data-image="avatar/partner1.png" data-link="https://example.com">
+                    <img src="avatar/partner1.png" alt="Проект 1">
+                    <div class="work-info">
+                        <h3>Проект 1</h3>
+                        <p>Описание работы партнёра</p>
+                    </div>
+                </div>
+                
+                <div class="work-card" data-title="Проект 2" data-desc="Ещё один проект" data-image="avatar/partner2.png" data-link="https://example.com">
+                    <img src="avatar/partner2.png" alt="Проект 2">
+                    <div class="work-info">
+                        <h3>Проект 2</h3>
+                        <p>Ещё один проект</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="project-modal">
+        <div class="modal-dialog">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <img id="modal-img" src="" alt="">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+            <a id="modal-link" href="#" target="_blank" class="project-link">Открыть проект →</a>
+        </div>
+    </div>
+
+    <!-- ФУТЕР -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo"><span class="logo">DEV<span>FOLIO</span></span><p>Создаю дизайн и код, который приносит продажи.</p></div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <a href="/">Главная</a>
+                <a href="/services">Услуги</a>
+                <a href="/about">Обо мне</a>
+                <a href="/#projects">Проекты</a>
+                <a href="/#reviews">Отзывы</a>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+            </div>
+            <div class="footer-legal">
+                <a href="/privacy">Политика конфиденциальности</a>
+                <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+            </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
+        </div>
+    </footer>
+
+    <script>
+        // Модальное окно
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalImg = document.getElementById('modal-img');
+        const modalLink = document.getElementById('modal-link');
+        const closeBtn = document.getElementById('modal-close-btn');
+
+        document.querySelectorAll('.work-card').forEach(card => {
+            card.addEventListener('click', () => {
+                modalTitle.textContent = card.dataset.title;
+                modalDesc.textContent = card.dataset.desc;
+                modalImg.src = card.dataset.image;
+                modalLink.href = card.dataset.link;
+                modal.classList.add('active');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+    </script>
+    <script src="/js/security.js"></script>
+    <script src="/js/core.js"></script>
+    <script src="/js/i18n.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/responsive.js"></script>
+</body>
+</html>

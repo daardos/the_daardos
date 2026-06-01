@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<script>
+// Защита от кликджекинга: если страница в iframe — выйти из него
+if (window.top !== window.self) {
+    window.top.location = window.self.location;
+}
+</script>
+<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://formspree.io;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data:;
+    connect-src 'self' https://formspree.io;
+    base-uri 'self';
+    form-action 'self' https://formspree.io;
+">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Услуги Senior Frontend разработчика. Создание сайтов, верстка из Figma, веб-приложения.">
+    <title>Услуги | Daardos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&familфy=Roboto:wght@400;500;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+    (function() {
+        var settings = { theme: 'dark', font: 'inter', fontsize: 'normal', accent: '#00d1b2' };
+        try {
+            var saved = JSON.parse(localStorage.getItem('site-settings'));
+            if (saved) {
+                if (saved.theme) settings.theme = saved.theme;
+                if (saved.font) settings.font = saved.font;
+                if (saved.fontsize) settings.fontsize = saved.fontsize;
+                if (saved.accent) settings.accent = saved.accent;
+            }
+        } catch(e) {}
+        
+        var root = document.documentElement;
+        
+        // Тема
+        if (settings.theme === 'light') {
+            document.body.classList.add('light-theme');
+        } else if (settings.theme === 'auto' && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.body.classList.add('light-theme');
+        }
+        
+        // Шрифт
+        var fonts = {
+            inter: "'Inter', system-ui, sans-serif",
+            roboto: "'Roboto', system-ui, sans-serif",
+            mono: "'Fira Code', monospace"
+        };
+        root.style.setProperty('--font-family', fonts[settings.font] || fonts.inter);
+        
+        // Размер шрифта
+        var sizes = { small: '14px', normal: '16px', large: '18px' };
+        root.style.setProperty('--base-font-size', sizes[settings.fontsize] || sizes.normal);
+        
+        // Акцентный цвет
+        root.style.setProperty('--accent', settings.accent);
+    })();
+</script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DEV<span>FOLIO</span></div>
+            <ul class="nav-links">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/services">Услуги</a></li>
+                <li><a href="/about">Обо мне</a></li>
+                <li><a href="/#projects">Проекты</a></li>
+                <li><a href="/#action">Контакты</a></li>
+                <li class="nav-more">
+                    <button class="nav-more-btn" aria-label="Ещё">Ещё ▾</button>
+                    <ul class="nav-dropdown">
+                        <li><a href="/resume">Резюме</a></li>
+                        <li><a href="/blog">Блог</a></li>
+                        <li><a href="/technologies">Технологии</a></li>
+                        <li><a href="/partner">Партнёрство</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/roadmap">Roadmap</a></li>
+                        <li><a href="/skills-map">Карта навыков</a></li>
+                        <li><a href="/about-site">О сайте</a></li>
+                        <li><a href="/sitemap">Карта сайта</a></li>
+                        <li><a href="/settings">⚙️ Настройки</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special">Нету GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div>
+                <h1>Мои услуги</h1>
+                <p>Высококонверсионные сайты и интерфейсы, созданные с нуля. Без шаблонов и тяжёлых CMS.</p>
+            </div>
+        </section>
+
+        <section class="container reveal kwork-cta">
+            <h2>Мои услуги на Kwork</h2>
+            <p>Полный список услуг, тарифов и примеров работ — на моей странице Kwork. Там же можно сразу оформить заказ.</p>
+            <a href="https://kwork.ru/user/daardos" target="_blank" class="btn-kwork-portal">
+                <span class="btn-text">Смотреть услуги</span>
+                <span class="btn-icon">→</span>
+                <span class="btn-glare"></span>
+            </a>
+        </section>
+
+        <section class="container reveal">
+            <h2>Процесс работы</h2>
+            <div class="workflow">
+                
+                <div class="workflow-step">
+                    <div class="step-num">01</div>
+                    <h4>Брифинг</h4>
+                    <p>Обсуждаем задачу, цели, референсы. Вы получаете точную оценку сроков и стоимости.</p>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-num">02</div>
+                    <h4>Прототип</h4>
+                    <p>Готовлю структуру и логику будущего сайта. Показываю наброски и согласую с вами.</p>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-num">03</div>
+                    <h4>Разработка</h4>
+                    <p>Пишу код, добавляю анимации, тестирую на всех устройствах. Вы видите промежуточные результаты.</p>
+                </div>
+                
+                <div class="workflow-step">
+                    <div class="step-num">04</div>
+                    <h4>Запуск</h4>
+                    <p>Финальные правки, выгрузка на хостинг, инструкция по поддержке. Проект готов к работе.</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="action" class="cta-form-section reveal">
+            <div class="cta-form-container">
+                <div class="cta-text">
+                    <h2>Готовы обсудить ваш проект?</h2>
+                    <p>Напишите мне сейчас и получите бесплатный аудит задачи + персональные рекомендации в течение 24 часов</p>
+                    <div class="socials-inline">
+                        <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/xpqklalq" method="POST" id="contact-form" class="cta-form">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="email" name="email" placeholder="Email для связи" required>
+                    <textarea name="message" placeholder="Опишите задачу или задайте вопрос" rows="4" required></textarea>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo"><span class="logo">DEV<span>FOLIO</span></span><p>Создаю дизайн и код, который приносит продажи.</p></div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <a href="/">Главная</a>
+                <a href="/services">Услуги</a>
+                <a href="/about">Обо мне</a>
+                <a href="/#projects">Проекты</a>
+                <a href="/#reviews">Отзывы</a>
+            </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <a href="https://github.com/daardos" target="_blank">GitHub</a>
+                <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+            </div>
+            <div class="footer-legal">
+                <a href="/privacy">Политика конфиденциальности</a>
+                <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+            </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
+        </div>
+    </footer>
+
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="cookie-container">
+            <p>Мы используем технические куки и локальное хранилище...</p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept" class="btn-cookie-accept">Принять</button>
+                <a href="/privacy" class="btn-cookie-more">Подробнее</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Анимации reveal
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            // Форма обратной связи
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const btn = form.querySelector('button');
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Отправка...';
+                    btn.disabled = true;
+                    try {
+                        const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                        if (response.ok) window.location.href = '/thanks';
+                        else throw new Error();
+                    } catch {
+                        btn.innerText = 'Ошибка!';
+                        btn.style.background = '#dc3545';
+                        setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+                    }
+                });
+            }
+
+            // Cookie consent
+            const consent = document.getElementById('cookie-consent');
+            const acceptBtn = document.getElementById('cookie-accept');
+            if (consent && acceptBtn && localStorage.getItem('cookie-accepted') !== 'true') {
+                setTimeout(() => consent.classList.add('show'), 500);
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie-accepted', 'true');
+                    consent.classList.remove('show');
+                    setTimeout(() => consent.style.display = 'none', 500);
+                });
+            }
+        });
+    </script>
+    <script src="js/security.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/settings-ui.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/responsive.js"></script>
+    <script src="js/share.js"></script>
+</body>
+</html>
