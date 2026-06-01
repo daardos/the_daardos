@@ -1,0 +1,124 @@
+/* =========================================
+   FOOTER.CSS — Подвал и панель доверия
+   ========================================= */
+
+/* ----- Обёртка подвала ----- */
+.site-footer {
+  background: #0b0e14;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 60px 20px 30px;
+  color: var(--muted);
+}
+
+/* ----- Сетка содержимого ----- */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+/* ----- Логотип в подвале ----- */
+.footer-logo .logo {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footer-logo p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ----- Заголовки в колонках ----- */
+.footer-links h4,
+.footer-contacts h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/* ----- Ссылки в колонках ----- */
+.footer-links a,
+.footer-contacts a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: var(--trans);
+}
+
+.footer-links a:hover,
+.footer-contacts a:hover {
+  color: var(--accent);
+}
+
+/* ----- Юридическая информация ----- */
+.footer-legal {
+  font-size: 0.85rem;
+}
+
+.footer-legal a {
+  color: var(--muted);
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.copyright {
+  margin-top: 10px;
+}
+
+/* ----- Кнопка «наверх» ----- */
+.back-to-top {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--trans);
+  justify-self: end;
+  align-self: end;
+}
+
+.back-to-top:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ----- Панель доверия (trust‑bar) ----- */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.trust-bar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.partner-banner {
+    text-align: center;
+    padding: 15px;
+    background: rgba(22, 27, 34, 0.8);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+.partner-banner a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}

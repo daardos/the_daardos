@@ -1,0 +1,356 @@
+/* =========================================
+   HERO.CSS — Главный экран (Hero)
+   ========================================= */
+
+/* ----- Основной контейнер Hero ----- */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url("../avatar/8-2.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+/* ----- Фоновое свечение (опционально) ----- */
+.hero-bg-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%,
+              rgba(var(--accent-rgb, 0, 209, 178), 0.15) 0%,
+              transparent 60%);
+  animation: glowPulse 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* ----- Контейнер с тремя колонками ----- */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 40px;
+  gap: 50px;
+  z-index: 2;
+}
+
+/* ----- Левая колонка (преимущества) ----- */
+.hero-left {
+  flex: 0 0 280px;
+  text-align: left;
+}
+
+.hero-advantages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-advantages li {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-advantages li:nth-child(1) { animation-delay: 0.3s; }
+.hero-advantages li:nth-child(2) { animation-delay: 0.6s; }
+.hero-advantages li:nth-child(3) { animation-delay: 0.9s; }
+.hero-advantages li:nth-child(4) { animation-delay: 1.2s; }
+.hero-advantages li:nth-child(5) { animation-delay: 1.5s; }
+
+@keyframes slideLeft {
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ----- Центральная колонка ----- */
+.hero-center {
+  flex: 1;
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-greeting {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-weight: 600;
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0 0 15px;
+  animation: fadeInUp 0.8s 0.1s ease-out both;
+}
+
+.hero-sub {
+  font-size: 1.3rem;
+  color: var(--muted);
+  margin-bottom: 30px;
+  animation: fadeInUp 0.8s 0.2s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ----- Кнопки в Hero ----- */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 0.8s 0.3s ease-out both;
+}
+
+/* ----- Правая колонка (декорация) ----- */
+.hero-right {
+  flex: 0 0 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ----- Сниппет кода ----- */
+.code-snippet {
+  background: rgba(22, 27, 34, 0.9);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 0;
+  font-family: 'Fira Code', monospace;
+  color: var(--text);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(0, 209, 178, 0.1);
+  animation: floatCode 5s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 320px;
+  width: 100%;
+}
+
+.code-snippet:hover {
+  box-shadow: 0 25px 50px rgba(0, 209, 178, 0.2),
+              0 0 40px rgba(0, 209, 178, 0.3);
+}
+
+.code-snippet.expanded {
+  max-width: 400px;
+  box-shadow: 0 30px 60px rgba(0, 209, 178, 0.3),
+              0 0 60px rgba(0, 209, 178, 0.2);
+}
+
+.code-snippet::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(135deg,
+              rgba(0, 209, 178, 0.1) 0%,
+              transparent 50%);
+  animation: hologramSweep 3s linear infinite;
+  z-index: 0;
+}
+
+@keyframes hologramSweep {
+  0% { transform: rotate(0deg) translateX(-50%) translateY(-50%); }
+  100% { transform: rotate(360deg) translateX(-50%) translateY(-50%); }
+}
+
+.code-header {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+
+.dot:nth-child(2) { background: #ffbd2e; }
+.dot:nth-child(3) { background: #27c93f; }
+
+.code-body {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.code-snippet pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.code-string {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 209, 178, 0.4);
+}
+
+/* Скрытая часть */
+.code-hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+.code-snippet.expanded .code-hidden {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Курсор */
+.cursor-blink {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  color: var(--accent);
+  font-size: 1.2rem;
+  animation: blink 1s step-end infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.code-snippet.expanded .cursor-blink {
+  opacity: 0;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes floatCode {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ----- Статистика посещений ----- */
+.hero-stats {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-stats p {
+  margin: 5px 0;
+}
+
+.hero-stats span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ----- Индикатор скролла ----- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 44px;
+  border: 2px solid var(--muted);
+  border-radius: 15px;
+}
+
+.scroll-indicator::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  margin-left: -2px;
+  border-radius: 50%;
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0; }
+}
+
+/* ----- Адаптив для Hero ----- */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 60px 20px;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-left .hero-advantages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hero-advantages li {
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .code-snippet {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .hero-stats {
+    text-align: center;
+  }
+}

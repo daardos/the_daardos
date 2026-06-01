@@ -1,0 +1,10 @@
+/* FAQ */
+@media (max-width: 768px) {
+    .faq-item {
+        padding: 12px;
+    }
+    .faq-question {
+        font-size: 1rem;
+        padding-right: 30px;
+    }
+}

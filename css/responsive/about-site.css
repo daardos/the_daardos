@@ -1,0 +1,9 @@
+/* О сайте */
+@media (max-width: 768px) {
+    .about-site-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-site-card {
+        text-align: center;
+    }
+}

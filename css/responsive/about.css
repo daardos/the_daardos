@@ -1,0 +1,17 @@
+/* Обо мне */
+@media (max-width: 768px) {
+    .about-photo {
+        width: 150px;
+        height: 150px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    .timeline-item {
+        padding-left: 30px;
+    }
+    .timeline-item::before {
+        left: 10px;
+    }
+}

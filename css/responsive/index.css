@@ -1,0 +1,20 @@
+/* Главная страница */
+@media (max-width: 768px) {
+    .hero-advantages {
+        justify-content: center;
+    }
+    .hero-stats {
+        text-align: center;
+    }
+    .filter-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+    .code-snippet {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+}

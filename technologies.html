@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Технологии и инструменты, с которыми работает Daardos.">
+    <title>Технологии | Daardos</title>
+
+    <!-- Предзагрузка темы (без мерцания) -->
+    <script>
+        (function() {
+            var settings = { theme: 'dark', font: 'inter', fontsize: 'normal', accent: '#00d1b2' };
+            try {
+                var saved = JSON.parse(localStorage.getItem('site-settings'));
+                if (saved) {
+                    if (saved.theme) settings.theme = saved.theme;
+                    if (saved.font) settings.font = saved.font;
+                    if (saved.fontsize) settings.fontsize = saved.fontsize;
+                    if (saved.accent) settings.accent = saved.accent;
+                }
+            } catch(e) {}
+
+            var root = document.documentElement;
+            if (settings.theme === 'light') {
+                document.body.classList.add('light-theme');
+            } else if (settings.theme === 'auto' && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.body.classList.add('light-theme');
+            }
+
+            var fonts = {
+                inter: "'Inter', system-ui, sans-serif",
+                roboto: "'Roboto', system-ui, sans-serif",
+                mono: "'Fira Code', monospace"
+            };
+            root.style.setProperty('--font-family', fonts[settings.font] || fonts.inter);
+
+            var sizes = { small: '14px', normal: '16px', large: '18px' };
+            root.style.setProperty('--base-font-size', sizes[settings.fontsize] || sizes.normal);
+
+            root.style.setProperty('--accent', settings.accent);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;500;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+        <!-- ШАПКА -->
+<header>
+    <nav>
+        <div class="logo">DEV<span>FOLIO</span></div>
+        <ul class="nav-links">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/services">Услуги</a></li>
+            <li><a href="/about">Обо мне</a></li>
+            <li><a href="/#projects">Проекты</a></li>
+            <li><a href="/#action">Контакты</a></li>
+            <li class="nav-more">
+                <button class="nav-more-btn" aria-label="Ещё">Ещё ▾</button>
+                <ul class="nav-dropdown">
+                    <li><a href="/resume">Резюме</a></li>
+                    <li><a href="/blog">Блог</a></li>
+                    <li><a href="/technologies">Технологии</a></li>
+                    <li><a href="/partner">Партнёрство</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/roadmap">Roadmap</a></li>
+                    <li><a href="/skills-map">Карта навыков</a></li>
+                    <li><a href="/about-site">О сайте</a></li>
+                    <li><a href="/sitemap">Карта сайта</a></li>
+                    <li><a href="/settings">⚙️ Настройки</a></li>
+                </ul>
+            </li>
+            <li><a href="https://daardos.github.io/login-help-GitHub/" target="_blank" class="nav-special">Нету GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <section class="tech-hero">
+            <div class="tech-container">
+                <h1>Мои технологии</h1>
+                <p>Инструменты и языки, с которыми я работаю каждый день</p>
+                <div class="tech-grid">
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🟧</div>
+                        <h3>HTML5</h3>
+                        <p>Семантическая разметка, доступность, SEO-оптимизация.</p>
+                        <div class="tech-bar" data-width="98"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🟦</div>
+                        <h3>CSS3</h3>
+                        <p>Flexbox, Grid, анимации, адаптивная вёрстка.</p>
+                        <div class="tech-bar" data-width="95"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🟨</div>
+                        <h3>JavaScript</h3>
+                        <p>ES6+, асинхронность, DOM-манипуляции, Canvas.</p>
+                        <div class="tech-bar" data-width="92"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">⚛️</div>
+                        <h3>React</h3>
+                        <p>Компонентный подход, хуки, состояние, маршрутизация.</p>
+                        <div class="tech-bar" data-width="85"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">▲</div>
+                        <h3>Next.js</h3>
+                        <p>SSR, статическая генерация, оптимизация производительности.</p>
+                        <div class="tech-bar" data-width="80"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🔷</div>
+                        <h3>TypeScript</h3>
+                        <p>Статическая типизация, безопасный и поддерживаемый код.</p>
+                        <div class="tech-bar" data-width="75"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🟢</div>
+                        <h3>Node.js</h3>
+                        <p>Серверная разработка, API, инструменты сборки.</p>
+                        <div class="tech-bar" data-width="70"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🎨</div>
+                        <h3>Figma</h3>
+                        <p>Дизайн интерфейсов, прототипирование, UI/UX.</p>
+                        <div class="tech-bar" data-width="88"></div>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🔀</div>
+                        <h3>Git / GitHub</h3>
+                        <p>Контроль версий, pull requests, CI/CD.</p>
+                        <div class="tech-bar" data-width="90"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- ФУТЕР -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo">DEV<span>FOLIO</span></span>
+                <p>Создаю дизайн и код, который приносит продажи.</p>
+            </div>
+        <div class="footer-links">
+            <h4>Навигация</h4>
+            <a href="/">Главная</a>
+            <a href="/services">Услуги</a>
+            <a href="/about">Обо мне</a>
+            <a href="/#projects">Проекты</a>
+            <a href="/#reviews">Отзывы</a>
+        </div>
+        <div class="footer-contacts">
+            <h4>Контакты</h4>
+            <a href="https://github.com/daardos" target="_blank">GitHub</a>
+            <a href="https://kwork.ru/user/daardos" target="_blank">Kwork</a>
+        </div>
+        <div class="footer-legal">
+            <a href="/privacy">Политика конфиденциальности</a>
+            <p class="copyright">© 2026 Daardos. Built with Speed & Style.</p>
+        </div>
+            <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Наверх</button>
+        </div>
+    </footer>
+    <script src="js/security.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/settings-ui.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/responsive.js"></script>
+    <script src="js/bonus-modal.js"></script>
+    <script>
+        (function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        bar.style.width = bar.getAttribute('data-width') + '%';
+                        observer.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.tech-bar').forEach(bar => observer.observe(bar));
+        })();
+    </script>
+</body>
+</html>

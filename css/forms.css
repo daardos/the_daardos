@@ -1,0 +1,112 @@
+/* =========================================
+   FORMS.CSS — Формы, CTA и элементы ввода
+   ========================================= */
+
+/* ----- Общая форма ----- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+textarea {
+  padding: 15px;
+  background: var(--bg);
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  font-family: inherit;
+  transition: var(--trans);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 209, 178, 0.2);
+}
+
+/* ----- CTA секция (общий контейнер) ----- */
+.cta-form-section {
+  padding: 100px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 209, 178, 0.05) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-form-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-text p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+/* ----- Социальные иконки в CTA ----- */
+.socials-inline {
+  display: flex;
+  gap: 20px;
+}
+
+.socials-inline a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--trans);
+}
+
+.socials-inline a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* ----- Стеклянная форма ----- */
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(22, 27, 34, var(--glass-opacity, 0.7));
+  backdrop-filter: blur(var(--blur-amount, 10px));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius, 20px);
+  padding: 40px;
+}
+
+/* ----- Поля в стеклянной форме ----- */
+.cta-form input,
+.cta-form textarea {
+  padding: 15px;
+  background: var(--bg);
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  font-family: inherit;
+  transition: var(--trans);
+}
+
+.cta-form input:focus,
+.cta-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 209, 178, 0.2);
+}

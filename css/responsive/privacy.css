@@ -1,0 +1,9 @@
+/* Политика */
+@media (max-width: 768px) {
+    .privacy-content {
+        padding: 0 10px;
+    }
+    .privacy-content h2 {
+        font-size: 1.3rem;
+    }
+}
