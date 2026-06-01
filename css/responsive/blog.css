@@ -1,9 +1,0 @@
-/* Блог */
-@media (max-width: 768px) {
-    .blog-coming-soon {
-        padding: 30px 15px;
-    }
-    .blog-icon {
-        font-size: 3rem;
-    }
-}
